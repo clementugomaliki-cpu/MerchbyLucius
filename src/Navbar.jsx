@@ -4,17 +4,17 @@ import logo from "./images/logo.png"
 export default function Navbar() {
   return (
     <div>
-      <header className="flex justify-between items-center">
+      <header className="flex justify-between items-center px-20 py-6 bg-white ">
         <div>
           <img src={logo} alt="Merch-by-Lucius logo" className="w-15 sm:w-20 md:w-28" />
         </div>
-        <div className="space-x-8">
-          <Link to="/materials">Discover</Link>
+        <div className="space-x-8 text-base">
+          <Link to="/materials" className=" font-semibold">Discover</Link>
           <Link to="/posts">Blog</Link>
         </div>
-        <div className="space-x-6">
-          <button>Login</button>
-          <button>Become an Affiliate</button>
+        <div className="space-x-6 text-base font-semibold">
+          <button className="border px-8 py-3 rounded-full border-[#2EC5BC] text-[#2EC5BC]">Login</button>
+          <button className="bg-[#2EC5BC] text-white px-8 py-3 rounded-full">Become an Affiliate</button>
         </div>
       </header>
     </div>
