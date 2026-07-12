@@ -4,7 +4,7 @@ import logo from "./images/logo.png"
 export default function Navbar() {
   return (
     <div>
-      <header className="flex justify-between items-center px-20 py-6 bg-white ">
+      <header className="flex justify-between items-center px-20 py-6 bg-white fixed top-0 right-0 left-0 z-50">
         <div>
           <img src={logo} alt="Merch-by-Lucius logo" className="w-15 sm:w-20 md:w-28" />
         </div>

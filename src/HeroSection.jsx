@@ -2,7 +2,7 @@ import { IoIosSearch } from "react-icons/io";
 
 export default function HeroSection() {
     return (
-        <div className="flex flex-col items-center justify-center sm:py-25 sm:px-16 bg-[#F8FAFB]">
+        <div className="flex flex-col items-center justify-center sm:py-25 sm:px-16 bg-[#F8FAFB] mt-25">
             <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm">
                 <div className="bg-[#2EC5BC] h-2 w-2 rounded-full"></div>
                 <p className="text-xs font-bold text-[#002f71]">EMPOWERING YOUNG MINDS</p>
