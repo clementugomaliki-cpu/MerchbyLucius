@@ -1,7 +1,12 @@
+import { BrowserRouter, Routes, Route } from "react-router";
+import Navbar from "./Navbar";
 export default function App() {
   return (
-    <div className="text-green-600">
-      This is the home page.
+    <div>
+      <BrowserRouter>
+        <Navbar/>
+        
+      </BrowserRouter>
     </div>
   )
 }
