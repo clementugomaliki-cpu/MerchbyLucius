@@ -2,8 +2,9 @@ import Navbar from "./Navbar";
 import HeroSection from "./HeroSection";
 import WhyChooseUs from "./WhyChooseUs";
 import CreatorSection from "./CreatorSection";
-import AffiliateSection from "./AffiliateSection";
-
+import AffliatePartnership from "./AffiliatePartnership";
+import Featured from "./Featured";
+import Footer from "./Footer";
 export default function LandingPage() {
   return (
     <div>
@@ -11,7 +12,9 @@ export default function LandingPage() {
         <HeroSection/>
         <WhyChooseUs/>
         <CreatorSection/>
-        <AffiliateSection/>
+        <AffliatePartnership/>
+        <Featured/>
+        <Footer/>
     </div>
   )
 }

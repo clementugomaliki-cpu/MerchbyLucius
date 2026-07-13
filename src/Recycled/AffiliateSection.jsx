@@ -1,4 +1,4 @@
-import BenefitCard from "./Components/BenefitCard";
+import BenefitCard from "../Components/BenefitCard";
 import dollarIcon from "./images/dollar.png";
 import homeIcon from "./images/home.png";
 import frameIcon from "./images/frame.png"
