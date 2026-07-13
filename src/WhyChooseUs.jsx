@@ -12,9 +12,9 @@ export default function WhyChooseUs() {
                 <div className="w-20 h-1.5 bg-[#FFA952] rounded-xl"></div>
             </div>
             <div className="flex gap-16 md:mt-20">
-                <BenefitCard logo={<img src={badgeIcon}/>} title="Vetted Content" paragraph="Every material undergoes a quality check to ensure maximum educational impact and safety."/>
-                <BenefitCard logo={<img src={lighteningIcon}/>} title="Instant Access" paragraph="Skip the shipping wait. Download your learning kits instantly and start your adventure in minutes."/>
-                <BenefitCard logo={<img src={starsIcon}/>} title="Interactive Design" paragraph="Some courses feature gamified elements and interactive quizzes that keep kids motivated and curious."/>
+                <BenefitCard logo={<img src={badgeIcon}/>} iconBg="bg-white" title="Vetted Content" paragraph="Every material undergoes a quality check to ensure maximum educational impact and safety."/>
+                <BenefitCard logo={<img src={lighteningIcon}/>} iconBg="bg-white" title="Instant Access" paragraph="Skip the shipping wait. Download your learning kits instantly and start your adventure in minutes."/>
+                <BenefitCard logo={<img src={starsIcon}/>} iconBg="bg-white" title="Interactive Design" paragraph="Some courses feature gamified elements and interactive quizzes that keep kids motivated and curious."/>
             </div>
             <button className="md:mt-20 bg-[#2EC5BC] px-12 py-3 rounded-full font-bold text-lg text-white">Explore the Bookstore</button>
         </div>

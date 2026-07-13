@@ -1,16 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router";
-import Navbar from "./Navbar";
-import HeroSection from "./HeroSection";
-import WhyChooseUs from "./WhyChooseUs";
-import CreatorSection from "./CreatorSection";
+import LandingPage from "./LandingPage";
+import SignUpPage from "./SignUpPage";
+
 export default function App() {
   return (
     <div>
       <BrowserRouter>
-        <Navbar/>
-        <HeroSection/>
-        <WhyChooseUs/>
-        <CreatorSection/>
+        <Routes>
+          <Route path="/" element={<LandingPage/>}/>
+          <Route path="/sign-in" element={<SignUpPage/>}/>
+        </Routes>
       </BrowserRouter>
     </div>
   )

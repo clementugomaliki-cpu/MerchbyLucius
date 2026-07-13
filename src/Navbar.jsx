@@ -13,7 +13,9 @@ export default function Navbar() {
           <Link to="/posts">Blog</Link>
         </div>
         <div className="space-x-6 text-base font-semibold">
-          <button className="border px-8 py-3 rounded-full border-[#2EC5BC] text-[#2EC5BC]">Login</button>
+          <Link to="/sign-in">
+            <button className="border px-8 py-3 rounded-full border-[#2EC5BC] text-[#2EC5BC]">Login</button>
+          </Link>
           <button className="bg-[#2EC5BC] text-white px-8 py-3 rounded-full">Become an Affiliate</button>
         </div>
       </header>
