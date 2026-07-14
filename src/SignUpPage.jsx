@@ -1,8 +1,13 @@
 import { Link } from "react-router";
 import bubblesImage from "./images/bubbles.png"
 import { LuEye, LuEyeOff } from "react-icons/lu";
+import { useState } from "react";
 
 export default function SignUpPage() {
+    const [showPassword, setShowPassword] = useState(false);
+function togglePasswordType() {
+    setShowPassword(!showPassword);
+}
     return (
         <div className="flex">
             <div className="md:h-screen md:w-2/4 bg-[#2EC5BC] flex justify-center items-center">
@@ -20,20 +25,25 @@ export default function SignUpPage() {
                      <label htmlFor="email" className="font-bold text-sm text-[#002F71]">Email Address
                         <input type="email" name="email" placeholder="name@example.com" className="block border px-5 py-2 mt-1.5 rounded-2xl border-[#BBC9C7] w-full outline-none placeholder:font-light"/>
                     </label>
-                     <label htmlFor="password" className="font-bold text-sm text-[#002F71]">Full Name
-                        <input type="password" name="password" placeholder="********" className="block border px-5 py-2 mt-1.5 rounded-2xl border-[#BBC9C7] w-full outline-none placeholder:font-light" />
-                        <LuEye/>
+                     <label htmlFor="password" className="font-bold text-sm text-[#002F71]">Password
+                        <div className="relative">
+                            <input type={showPassword ? "text" : "password"} name="password" placeholder={showPassword ? "Enter your password" : "********"} className="block border px-5 py-2 mt-1.5 rounded-2xl border-[#BBC9C7] w-full outline-none placeholder:font-light" />
+                            <button type="button" className="absolute top-1/4 right-4 text-lg"                       
+                             onClick={togglePasswordType}>{showPassword ? <LuEye/> : <LuEyeOff/>}</button>
+                        </div>
                     </label>
                     <div className="flex items-center gap-3 rounded-xs">
-                        <div className="h-5 w-5 border border-[#BBC9C7]"></div>
+                        <input type="checkbox" className="h-5 w-5 border border-[#BBC9C7]"/>
                         <div className="text-xs font-semibold">
                             <p className="text-[#4A5568]">By creating an account, you agree to our <Link><span className="text-[#2EC5BC]">Terms of Service</span></Link> and <Link><span className="text-[#2EC5BC] block">Privacy Policy</span></Link></p>
                         </div>
                     </div>
                 </form>
-                <div className="flex flex-col text-center">
-                    <button className="rounded-full bg-[#2EC5BC] px-10 py-3 font-semibold text-white cursor-pointer hover:opacity-[0.85]">Create account</button>
-                    <p className="sm:pt-8 text-base font-[400] text-[#4A5568]">Already have an account? <Link className="text-base font-semibold text-[#2EC5BC]">Log in</Link></p>
+                <div className="flex flex-col text-center ">
+                    <button className="rounded-full bg-[#2EC5BC] px-10 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85]">Create account</button>
+                    <div className="sm:pt-8 border-t border-[#BBC9C7] text-base font-[400] text-[#4A5568]">
+                        <p >Already have an account? <Link className="text-base font-semibold text-[#2EC5BC]">Log in</Link></p>
+                    </div>
                 </div>
             </div>
         </div>
