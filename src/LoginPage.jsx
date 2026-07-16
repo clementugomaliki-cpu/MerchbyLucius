@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import bubblesImage from "./images/bubbles.png"
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { FcGoogle } from "react-icons/fc";
+import logo from "./images/logo.png";
 import { useState } from "react";
 
 export default function LoginPage() {
@@ -10,11 +11,17 @@ function togglePasswordType() {
     setShowPassword(!showPassword);
 }
     return (
-        <div className="flex">
-            <div className="md:h-screen md:w-2/4 bg-[#2EC5BC] flex justify-center items-center">
+        <>
+                <header className="px-20 py-6 bg-white fixed top-0 right-0 left-0 z-50 border border-[#FFFFFF] shadow-xs">
+                                <Link to="/">
+                                  <img src={logo} alt="Merch-by-Lucius logo" className="w-15 sm:w-20 md:w-28 cursor-pointer" />
+                                </Link>
+                            </header>
+        <div className="grid grid-cols-2 pt-25 min-h-screen">
+            <div className=" bg-[#2EC5BC] flex justify-center items-center">
                 <img src={bubblesImage} alt="" />
             </div>
-            <div className="flex flex-col justify-center p-16 py-8 gap-8 mx-auto">
+            <div className="flex flex-col p-16 py-10 gap-8 mx-auto">
                 <div className="flex flex-col">
                     <h3 className="font-bold text-[32px] text-[#002F71]">Welcome Back</h3>
                     <h4 className="text-base text-[#4A5568] font-[400]">Sign in to your account to continue.</h4>
@@ -32,7 +39,7 @@ function togglePasswordType() {
                         <label htmlFor="password" className="font-bold text-sm flex flex-col text-[#002F71] w-full block">
                             <div className="flex justify-between">
                                 <span >Password</span>
-                                <Link className="text-[#006A65]">Forgot Password?</Link>
+                                <Link to="/forgot-password" className="text-[#006A65]">Forgot Password?</Link>
                             </div>
                         
                         <div className="relative">
@@ -51,5 +58,6 @@ function togglePasswordType() {
                 </div>
             </div>
         </div>
+        </>
     )
 }

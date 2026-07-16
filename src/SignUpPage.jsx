@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import bubblesImage from "./images/bubbles.png"
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { useState } from "react";
+import logo from "./images/logo.png";
 
 export default function SignUpPage() {
     const [showPassword, setShowPassword] = useState(false);
@@ -9,7 +10,13 @@ function togglePasswordType() {
     setShowPassword(!showPassword);
 }
     return (
-        <div className="flex">
+        <>
+        <header className="px-20 py-6 bg-white fixed top-0 right-0 left-0 z-50 border border-[#FFFFFF] shadow-xs">
+                        <Link to="/">
+                          <img src={logo} alt="Merch-by-Lucius logo" className="w-15 sm:w-20 md:w-28 cursor-pointer" />
+                        </Link>
+                    </header>
+        <div className="flex pt-25">
             <div className="md:h-screen md:w-2/4 bg-[#2EC5BC] flex justify-center items-center">
                 <img src={bubblesImage} alt="" />
             </div>
@@ -40,12 +47,13 @@ function togglePasswordType() {
                     </div>
                 </form>
                 <div className="flex flex-col text-center ">
-                    <button className="rounded-full bg-[#2EC5BC] px-10 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85]">Create account</button>
+                    <Link to="/verify-email" className="rounded-full bg-[#2EC5BC] px-10 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85]">Create account</Link>
                     <div className="sm:pt-8 border-t border-[#BBC9C7] mt-4 text-base font-[400] text-[#4A5568]">
                         <p >Already have an account? <Link to="/sign-in" className="text-base font-semibold text-[#2EC5BC]">Log in</Link></p>
                     </div>
                 </div>
             </div>
         </div>
+    </>
     )
 }

@@ -5,6 +5,7 @@ import CreatorSection from "./CreatorSection";
 import AffliatePartnership from "./AffiliatePartnership";
 import Featured from "./Featured";
 import Footer from "./Footer";
+
 export default function LandingPage() {
   return (
     <div>
