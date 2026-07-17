@@ -38,10 +38,10 @@ export default function Featured() {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center py-[100px] px-[80px] bg-[#F8FAFB]">
+    <div className="flex flex-col items-center justify-center pt-8 pb-24 px-10 md:py-[100px] md:px-20 bg-[#F8FAFB]">
       <div className="w-full">
-        <div className="flex  items-end justify-between">
-          <div className=" flex flex-col items-start gap-2">
+        <div className="flex flex-col items-start gap-2 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-col items-start gap-2">
             <h2 className="font-extrabold text-[32px] text-[#002F71] leading-[40px] whitespace-nowrap">
               Featured Resources
             </h2>
@@ -49,14 +49,17 @@ export default function Featured() {
               Hand-picked materials to inspire curiosity this week.
             </p>
           </div>
-          <div className="text-[#2EC5BC] font-bold text-[18px] flex flex-row items-center  gap-2">
+          <div className="text-[#2EC5BC] font-bold text-[18px] flex flex-row items-center gap-2">
             <Link>Browse All Collections</Link>
             <FaArrowRight />
           </div>
         </div>
-        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full mt-16">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full mt-16">
           {featuredData.map((feat, idx) => (
-            <FeaturedCard key={idx} {...feat} />
+            <div key={idx} className={idx === 0 ? "" : "hidden sm:block"}>
+              <FeaturedCard {...feat} />
+            </div>
           ))}
         </div>
       </div>

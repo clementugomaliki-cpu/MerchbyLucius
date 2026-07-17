@@ -31,7 +31,7 @@ export default function AffliatePartnership() {
   return (
     <div className="w-full  flex flex-col items-center gap-16 pt-[100px] pb-[100px] px-16">
       <div className="text-center flex flex-col gap-6">
-        <h2 className="text-[#002F71] leading-[48px] text-[32px] font-extrabold">
+        <h2 className="text-[#002F71] leading-[48px] text-[32px] font-extrabold whitespace-nowrap">
           Afilliate Partnership
         </h2>
         <p className="font-normal text-[20px] leading-[28px] text-[#4A5568] max-w-[670px] mx-auto">
