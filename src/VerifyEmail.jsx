@@ -12,15 +12,15 @@ export default function VerifyEmail() {
                   <img src={logo} alt="Merch-by-Lucius logo" className="w-15 sm:w-20 md:w-28 cursor-pointer" />
                 </Link>
             </header>
-        <div className="grid grid-cols-2 min-h-screen">
-            <div className=" bg-[#2EC5BC] flex justify-center items-center">
+        <div className="md:grid md:grid-cols-2 pt-25 min-h-screen">
+            <div className="hidden md:flex bg-[#2EC5BC] min-h-screen flex justify-center items-center">
                 <img src={bubblesImage} alt="" />
             </div>
-            <div className="flex flex-col justify-center p-16 gap-8 md:mt-16 mx-auto">
+            <div className="min-h-screen flex flex-col justify-center p-10 sm:p-12 md:p-16 py-10 gap-8 mx-auto max-w-md md:max-w-none md:w-auto border border-[14px] border-[#2EC5BC] md:border-none">
                 <div className="flex flex-col">
                     <h3 className="font-bold text-[32px] text-[#002F71]">Check Your Email</h3>
-                    <h4 className="text-base text-[#4A5568] font-[400]">Please enter the 6-digit code we sent to your</h4>
-                <div className="flex gap-5 pt-8">
+                    <h4 className="text-base text-[#4A5568] font-[400]">Please enter the 6-digit code we sent to your email</h4>
+                <div className="flex gap-1 sm:gap-3 md:gap-5 pt-8">
                     <div className="h-14 w-12 border border-[#BBC9C7] rounded-xl"/>
                     <div className="h-14 w-12 border border-[#BBC9C7] rounded-xl"/>
                     <div className="h-14 w-12 border border-[#BBC9C7] rounded-xl"/>
@@ -28,13 +28,11 @@ export default function VerifyEmail() {
                     <div className="h-14 w-12 border border-[#BBC9C7] rounded-xl"/>
                     <div className="h-14 w-12 border border-[#BBC9C7] rounded-xl"/>
                 </div>
-                
-                
                 
                 </div>
                     <p className="text-[#4A5568]">Didn't get any mail? <Link to="" className="text-base font-semibold text-[#2EC5BC]">Resend verification email</Link></p>
                 
-                    <div className="sm:pt-8 border-t border-[#BBC9C7] mt-4 text-base font-[400] text-[#4A5568] text-center">
+                    <div className="pt-8 border-t border-[#BBC9C7] mt-4 text-base font-[400] text-[#4A5568] text-center">
                         <p >Still having trouble? contact <Link to="" className="text-base font-semibold text-[#2EC5BC]">support</Link></p>
                     </div>
 
