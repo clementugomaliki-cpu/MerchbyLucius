@@ -30,21 +30,21 @@ export default function Navbar() {
         </div>
         <div className="relative z-40">
         <button 
-          className="md:hidden w-12 h-10" onClick={toggleMenu}
+          className="md:hidden text-3xl" onClick={toggleMenu}
            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          >{isMenuOpen ? <LuX/> : <LuMenu/>}
+          >{isMenuOpen ? <LuX/> : <LuMenu />}
            
         </button>
         {isMenuOpen && (
           
             <div className="fixed inset-0 bg-[#2EC5BC]/20 z-30" onClick={()=> setIsMenuOpen(false)}/>)}
-            <div className={`flex flex-col items-start text-left absolute top-full right-0 mt-2 text-sm p-4 font-semibold z-40 transition-all duration-700 origin-top-right divide-y divide-white/40 bg-[#2EC5BC] space-y-4 w-48 text-white ${
+            <div className={`flex flex-col items-start text-left absolute top-full right-0 mt-2 text-base px-4 font-semibold z-40 transition-all duration-700 origin-top-right divide-y divide-white/40 bg-[#2EC5BC] w-48 text-white ${
               isMenuOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
             }`}>
-              <Link to="/materials" onClick={()=> setIsMenuOpen(false)}>Discover</Link>
-              <Link to="/posts" onClick={()=> setIsMenuOpen(false)}>Blog</Link>
-              <Link to="/sign-in" onClick={()=> setIsMenuOpen(false)}>Login</Link>
-              <Link onClick={()=> setIsMenuOpen(false)}>Become an Affiliate</Link>
+              <Link to="/materials" onClick={()=> setIsMenuOpen(false)} className="py-2">Discover</Link>
+              <Link to="/posts" onClick={()=> setIsMenuOpen(false)} className="py-2">Blog</Link>
+              <Link to="/sign-in" onClick={()=> setIsMenuOpen(false)} className="py-2">Login</Link>
+              <Link onClick={()=> setIsMenuOpen(false)} className="py-3">Become an Affiliate</Link>
             </div>
           
           

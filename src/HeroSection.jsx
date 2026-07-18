@@ -2,7 +2,7 @@ import { IoIosSearch } from "react-icons/io";
 
 export default function HeroSection() {
   return (
-    <div className="flex flex-col items-center justify-center px-6 py-16 sm:py-25 sm:px-16 bg-[#F8FAFB] mt-25">
+    <div className="flex flex-col items-center justify-center px-6 py-20 sm:py-25 sm:px-16 bg-[#F8FAFB] mt-25">
       <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm">
         <div className="bg-[#2EC5BC] h-2 w-2 rounded-full"></div>
         <p className="text-xs font-bold text-[#002f71]">
@@ -18,11 +18,9 @@ export default function HeroSection() {
       </div>
 
       <div className="max-w-2xl mt-6 md:mt-10 text-base md:text-xl/8 text-[#4A5568]">
-        <p>
-          Premium digital products and interactive courses curated{" "}
-          <span className="block">
+        <p className="w-[290px] sm:w-xs md:w-2xl px-2 md:px-0 text-base/8 md:text-xl/8 flex flex-wrap text-center md:text-left">
+          Premium digital products and interactive courses curated
             to make learning the most exciting part of your child's day.
-          </span>
         </p>
       </div>
 
@@ -32,10 +30,10 @@ export default function HeroSection() {
           <input
             type="text"
             placeholder="What would you like to learn today?"
-            className="w-full outline-none min-w-0"
+            className="w-full outline-none min-w-0 placeholder:text-sm sm:placeholder:text-base"
           />
         </div>
-        <button className="bg-[#2EC5BC] text-white text-sm sm:text-base font-bold px-6 sm:px-10 py-3 rounded-full shrink-0">
+        <button className="bg-[#2EC5BC] text-white text-xs sm:text-sm md:text-base font-bold px-4 sm:px-6 md:px-10 py-2 sm:py-3 rounded-full shrink-0">
           Search
         </button>
       </div>
