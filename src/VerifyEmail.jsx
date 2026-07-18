@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import Navbar from "./Navbar";
 import bubblesImage from "./images/bubbles.png"
 import { useState } from "react";
 import logo from "./images/logo.png";
@@ -7,16 +8,12 @@ export default function VerifyEmail() {
     
     return (
         <section className="bg-#F8FAFB">
-        <header className="px-20 py-6 bg-white fixed top-0 right-0 left-0 z-50 border border-[#FFFFFF] shadow-xs">
-                <Link to="/">
-                  <img src={logo} alt="Merch-by-Lucius logo" className="w-15 sm:w-20 md:w-28 cursor-pointer" />
-                </Link>
-            </header>
+        <Navbar/>
         <div className="md:grid md:grid-cols-2 pt-25 min-h-screen">
             <div className="hidden md:flex bg-[#2EC5BC] min-h-screen flex justify-center items-center">
                 <img src={bubblesImage} alt="" />
             </div>
-            <div className="min-h-screen flex flex-col justify-center p-10 sm:p-12 md:p-16 py-10 gap-8 mx-auto max-w-md md:max-w-none md:w-auto border border-[14px] border-[#2EC5BC] md:border-none">
+            <div className="min-h-screen flex flex-col md:justify-center p-10 sm:p-12 md:p-16 py-10 gap-8 mx-auto max-w-md md:max-w-none md:w-auto border border-[14px] border-[#2EC5BC] md:border-none">
                 <div className="flex flex-col">
                     <h3 className="font-bold text-[32px] text-[#002F71]">Check Your Email</h3>
                     <h4 className="text-base text-[#4A5568] font-[400]">Please enter the 6-digit code we sent to your email</h4>
