@@ -16,9 +16,9 @@ function togglePasswordType() {
         <Navbar/>
         <div className="flex pt-25 min-h-screen">
         <div className="hidden md:flex min-h-screen w-2/4 bg-[#2EC5BC]  justify-center items-center">
-            <img src={bubblesImage} alt="" />
+            <img src={bubblesImage} alt="bubbles image" />
         </div>
-        <div className="flex flex-col justify-center p-10 sm:p-12 md:p-16 py-10 gap-8 mx-auto max-w-md md:max-w-none md:w-auto border border-[12px] border-[#2EC5BC] md:border-none">
+        <div className="flex flex-col md:justify-center p-10 sm:p-12 md:p-16 py-10 gap-8 mx-auto max-w-md md:max-w-none md:w-auto border border-[14px] border-[#2EC5BC] md:border-none">
             <div className="flex flex-col">
                 <h3 className="font-bold text-[32px] text-[#002F71]">Create Your Account</h3>
                 <h4 className="text-base text-[#4A5568] font-[400]">Access the world's best educational resources today.</h4>
