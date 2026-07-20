@@ -25,7 +25,7 @@ export default function PasswordChanged() {
                     <h3 className="font-bold text-[32px] text-[#002F71]">Password Change Successful</h3>
                     <h4 className="text-base/7 text-[#4A5568] font-[400]">Your password has been successfully updated. You can use your new password to log into your account.</h4>
                 </div>
-                    <Link className="rounded-full flex items-center justify-center bg-[#2EC5BC] px-10 sm:px-20 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85]">Go to Login</Link>
+                    <Link to="/sign-in" className="rounded-full flex items-center justify-center bg-[#2EC5BC] px-10 sm:px-20 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85]">Go to Login</Link>
                 </div>
             </div>
         </section>
