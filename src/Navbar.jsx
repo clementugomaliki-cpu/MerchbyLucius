@@ -13,7 +13,7 @@ export default function Navbar() {
   }
   return (
     <>
-      <header className="flex justify-between items-center px-10 sm:px-14 md:px-20 py-3 sm:py-4 md:py-6 bg-white fixed top-0 right-0 left-0 z-50">
+      <header className="flex justify-between items-center px-10 sm:px-12 py-3 sm:py-4 md:py-6 bg-white fixed top-0 right-0 left-0 z-50">
       <div>
          <Link to="/"><img src={smlogo} alt="logo" className="sm:hidden w-12"/></Link>
           <Link to="/"><img src={logo} alt="Merch-by-Lucius logo" className="hidden sm:block sm:w-24 md:w-28" /></Link>
@@ -25,14 +25,14 @@ export default function Navbar() {
         <div className="space-x-6 text-base font-semibold flex">
             <Link to="/sign-in" className="hidden md:block border px-8 py-3 rounded-full border-[#2EC5BC] text-[#2EC5BC] cursor-pointer">Login</Link>
           <Link className="hidden md:block bg-[#2EC5BC] text-white px-8 py-3 rounded-full cursor-pointer">Become an Affiliate</Link>
-        <div className="relative z-40">
+        {/* <div className="relative z-40"> */}
         <button 
-          className="md:hidden text-3xl" onClick={toggleMenu}
+          className="md:hidden text-3xl relative z-40" onClick={toggleMenu}
            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >{isMenuOpen ? <LuX/> : <LuMenu />}
            
         </button>
-        </div>
+        {/* </div> */}
         
         {isMenuOpen && (
           

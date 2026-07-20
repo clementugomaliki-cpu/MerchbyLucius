@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import bubblesImage from "./images/bubbles.png"
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { FcGoogle } from "react-icons/fc";
+import Navbar from "./Navbar";
 import logo from "./images/logo.png";
 import { useState } from "react";
 
@@ -12,17 +13,13 @@ function togglePasswordType() {
 }
     return (
         <>
-                <header className="px-20 py-6 bg-white fixed top-0 right-0 left-0 z-50 border border-[#FFFFFF] shadow-xs">
-                                <Link to="/">
-                                  <img src={logo} alt="Merch-by-Lucius logo" className="w-15 sm:w-20 md:w-28 cursor-pointer" />
-                                </Link>
-                            </header>
-        <div className="grid grid-cols-2 pt-25 min-h-screen">
-            <div className=" bg-[#2EC5BC] flex justify-center items-center">
+        <Navbar/>
+        <div className="md:grid md:grid-cols-2 pt-25 md:pt-0 min-h-screen">
+            <div className="hidden bg-[#2EC5BC] md:flex justify-center items-center">
                 <img src={bubblesImage} alt="" />
             </div>
-            <div className="flex flex-col p-16 py-10 gap-8 mx-auto">
-                <div className="flex flex-col">
+            <div className="min-h-screen flex flex-col md:justify-center p-10 sm:p-12 md:p-16 py-10 gap-8 mx-auto max-w-md md:max-w-none md:w-auto border border-[14px] border-[#2EC5BC] md:border-none">
+                <div className="flex flex-col sm:pt-20">
                     <h3 className="font-bold text-[32px] text-[#002F71]">Create New Password</h3>
                     <h4 className="text-base text-[#4A5568] font-[400]">Please enter and confirm your new password below</h4>
                 </div>
@@ -46,7 +43,7 @@ function togglePasswordType() {
                 </form>
                 <div className="flex flex-col text-center ">
                     <Link to="changed-password" className="rounded-full bg-[#2EC5BC] px-10 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85]">Reset Password</Link>
-                    <div className="sm:pt-8 border-t border-[#BBC9C7] mt-4 text-base font-[400] text-[#4A5568]">
+                    <div className="pt-8 border-t border-[#BBC9C7] mt-4 text-base font-[400] text-[#4A5568]">
                          <Link to="/sign-in" className="text-base font-semibold text-[#2EC5BC]">Back to Login</Link>
                     </div>
                 </div>
