@@ -5,7 +5,6 @@ import { FcGoogle } from "react-icons/fc";
 import logo from "./images/logo.png";
 import { useState } from "react";
 import Navbar from "./Navbar";
-
 export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
 function togglePasswordType() {
