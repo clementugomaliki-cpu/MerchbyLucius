@@ -25,7 +25,7 @@ export default function VerificationSuccess() {
                     <h3 className="font-bold text-[32px] text-[#002F71]">Verification Successful</h3>
                     <h4 className="text-base/7 text-[#4A5568] font-[400]">Your email has been verified. You can now access your account and start exploring our educational resources.</h4>
                 </div>
-                    <Link className="rounded-full flex items-center justify-center bg-[#2EC5BC] px-10 sm:px-20 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85]">Go to Dashboard</Link>
+                    <Link to="/dashboard" className="rounded-full flex items-center justify-center bg-[#2EC5BC] px-10 sm:px-20 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85]">Go to Dashboard</Link>
                 </div>
             </div>
         </section>

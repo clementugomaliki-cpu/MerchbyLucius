@@ -48,7 +48,7 @@ function togglePasswordType() {
                         </label>
                     </form>
                     <div className="flex flex-col text-center ">
-                        <button className="rounded-full bg-[#2EC5BC] px-10 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85]">Sign In</button>
+                        <Link to="/dashboard" className="rounded-full bg-[#2EC5BC] px-10 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85]">Sign In</Link>
                         <div className="pt-8 border-t border-[#BBC9C7] mt-4 text-base font-[400] text-[#4A5568]">
                             <p >Don't have an account? <Link to="/sign-up" className="text-base font-semibold text-[#2EC5BC]">Create one</Link></p>
                         </div>

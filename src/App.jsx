@@ -8,6 +8,7 @@ import VerificationSuccess from "./VerificationSuccess";
 import ForgotPassword from "./ForgotPassword";
 import CreateNewPassword from "./CreateNewPassword";
 import PasswordChanged from "./PasswordChanged";
+import Dashboard from "./Dashboard";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/forgot-password" element={<ForgotPassword/>}/>
           <Route path="/reset-password" element={<CreateNewPassword/>}/>
           <Route path="/changed-password" element={<PasswordChanged/>}/>
+          <Route path="/dashboard" element={<Dashboard/>}/>
         </Routes>
       </BrowserRouter>
     </div>
