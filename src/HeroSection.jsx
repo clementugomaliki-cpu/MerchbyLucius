@@ -39,16 +39,16 @@ export default function HeroSection() {
       </div>
 
       <div className="w-full max-w-2xl flex flex-wrap gap-3 justify-center items-center mt-8">
-        <p className="px-5 py-2 rounded-full bg-white text-sm font-semibold text-[#FFA952] shadow-sm">
+        <p className="px-5 py-2 rounded-full bg-white text-sm font-semibold text-[#FFA952]">
           Trending Topics:
         </p>
-        <p className="px-5 py-2 rounded-full bg-white text-sm font-semibold text-[#002F71] shadow-sm">
+        <p className="px-5 py-2 rounded-full bg-white text-sm font-semibold text-[#002F71]">
           Coding for Kids
         </p>
-        <p className="px-5 py-2 rounded-full bg-white text-sm font-semibold text-[#002F71] shadow-sm">
+        <p className="px-5 py-2 rounded-full bg-white text-sm font-semibold text-[#002F71]">
           Planning Journal
         </p>
-        <p className="px-5 py-2 rounded-full bg-white text-sm font-semibold text-[#002F71] shadow-sm">
+        <p className="px-5 py-2 rounded-full bg-white text-sm font-semibold text-[#002F71] ">
           Creative Arts
         </p>
       </div>

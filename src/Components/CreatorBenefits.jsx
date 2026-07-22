@@ -1,6 +1,6 @@
 export default function CreatorBenefits({logo, title}) {
     return (
-        <div className="rounded-3xl bg-white flex flex-col p-8 gap-4 shadow-sm">
+        <div className="rounded-3xl bg-white flex flex-col p-8 gap-4">
             <div>
                 <div className="">{logo}</div>
             </div>

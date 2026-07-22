@@ -19,7 +19,7 @@ export default function App() {
           <Route path="/sign-in" element={<LoginPage/>}/>
           <Route path="/sign-up" element={<SignUpPage/>}/>
           <Route path="/verify-email" element={<VerifyEmail/>}/>
-          <Route path="/dashboard" element={<VerificationSuccess/>}/>
+          <Route path="/verify-success" element={<VerificationSuccess/>}/>
           <Route path="/forgot-password" element={<ForgotPassword/>}/>
           <Route path="/reset-password" element={<CreateNewPassword/>}/>
           <Route path="/changed-password" element={<PasswordChanged/>}/>

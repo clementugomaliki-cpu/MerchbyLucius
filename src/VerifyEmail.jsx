@@ -33,7 +33,7 @@ export default function VerifyEmail() {
                         <p >Still having trouble? contact <Link to="" className="text-base font-semibold text-[#2EC5BC]">support</Link></p>
                     </div>
 
-                    <Link to="/dashboard">Click here just to test page</Link>
+                    <Link to="/verify-success">Click here just to test page</Link>
                 </div>
             </div>
         </section>
