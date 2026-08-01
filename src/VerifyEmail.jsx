@@ -51,7 +51,7 @@ export default function VerifyEmail() {
         }
         setSubmitting(true);
         try {
-        const response = await fetch("http://localhost:3500/accounts/verify-otp", {
+        const response = await fetch("https://web-dev-course-1.onrender.com/accounts/verify-otp", {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({email, otp})
@@ -76,7 +76,7 @@ export default function VerifyEmail() {
         setErrorMessage("");
         setResending(true);
         try {
-            const response = await fetch("http://localhost:3500/accounts/resend-code", {
+            const response = await fetch("https://web-dev-course-1.onrender.com/accounts/resend-code", {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({email})

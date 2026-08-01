@@ -25,7 +25,7 @@ async function createAccount() {
         return
     }
     try {
-    const response = await fetch("http://localhost:3500/accounts/creator-register", {
+    const response = await fetch("https://web-dev-course-1.onrender.com/accounts/creator-register", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(formInput)
