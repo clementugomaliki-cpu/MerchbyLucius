@@ -1,9 +1,7 @@
 import { Link, useNavigate } from "react-router";
 import bubblesImage from "./images/bubbles.png"
-import { LuEye, LuEyeOff, LuMenu, LuX } from "react-icons/lu";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 import { useState } from "react";
-import logo from "./images/logo.png";
-import smlogo from "./images/smlogo.png"
 import Navbar from "./Navbar";
 
 export default function CreatorForm() {
@@ -38,9 +36,9 @@ async function createAccount() {
         return
     }
     //setAccountCreated(true);
-    navigate("/verify-email");
-    setErrorMessage("");
-    setFormInput({name: "", email: "", password: ""});
+    navigate("/verify-email", {state: {email: formInput.email}});
+    // setErrorMessage("");
+    // setFormInput({name: "", email: "", password: ""});
 } catch (error) {
     setErrorMessage(error.message)
 }

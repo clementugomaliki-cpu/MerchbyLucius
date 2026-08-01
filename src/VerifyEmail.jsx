@@ -1,7 +1,7 @@
 import { Link, useNavigate, useLocation } from "react-router";
 import Navbar from "./Navbar";
 import bubblesImage from "./images/bubbles.png"
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import logo from "./images/logo.png";
 
 export default function VerifyEmail() {
@@ -37,6 +37,13 @@ export default function VerifyEmail() {
         }
     }
 
+     useEffect(() => {
+        const otp = digits.join("");
+        if (otp.length === 6) {
+            verifyOTP(otp)
+        }
+    },[digits])
+
     async function verifyOTP() {
         const otp = digits.join("");
         if (otp.length < 6) {
@@ -51,7 +58,10 @@ export default function VerifyEmail() {
         })
         const data = await response.json();
         if (!response.ok) {
-           return setErrorMessage(data.message || 'Account verification failed. Try again.')
+           setErrorMessage(data.message || 'Account verification failed. Try again.');
+            setDigits(["", "", "", "", "", ""]);
+            inputRefs.current[0]?.focus();
+            return
         }
         //return data.message; 
         navigate("/verify-success");
@@ -97,7 +107,7 @@ export default function VerifyEmail() {
                     <h3 className="font-bold text-[32px] text-[#002F71]">Check Your Email</h3>
                     <h4 className="text-base text-[#4A5568] font-[400]">Please enter the 6-digit code we sent to your email</h4>
                 
-                {!location.state?.email && (
+                {!email && (
                     <label className="font-bold text-sm text-[#002F71] p-4">
                         Email Address
                         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@example.com"
@@ -105,21 +115,19 @@ export default function VerifyEmail() {
                         />
                     </label>
                 )}
-
-                <div className="flex gap-3 p-10">
+                    {errorMessage && (
+                     <p className="text-red-500 text-sm pt-6">{errorMessage}</p>
+                 )}
+                <div className="flex gap-3 py-4">
                     {digits.map((digit, index) => (
                         <input key={index} ref={(el) => (inputRefs.current[index] = el)}
                             type="text" inputMode="numeric" maxLength={1} value={digit}
                             onChange={(e) => handleDigitChange(index, e.target.value)}
-                            onKeyDown={(e) => handleKeyDown(index, e)}
-                            className="w-14 h-14 text-center text-xl border rounded-2xl border-[#BBC9C7] outline-none focus:border-[#2EC5BC]"
+                            onKeyDown={(e) => handleKeyDown(index, e)} disabled={submitting}
+                            className={`w-14 h-14 text-center text-xl border rounded-2xl outline-none focus:border-[#2EC5BC] disabled:opacity-50 ${errorMessage ? "border-red-600" : "border-[#BBC9C7]"}`}
                         />
                     ))}
                 </div>
-
-                {errorMessage && (
-                    <p className="text-red-500 text-sm">{errorMessage}</p>
-                )}
 
                 <p className="text-sm text-[#4A5568]">
                     Didn't get any mail?{" "}
@@ -128,11 +136,11 @@ export default function VerifyEmail() {
                     </button>
                 </p>
 
-                <button type="button" onClick={verifyOTP} disabled={submitting}
+                {/* <button type="button" onClick={verifyOTP} disabled={submitting}
                     className="rounded-full bg-[#2EC5BC] px-10 py-3 font-semibold text-white cursor-pointer hover:opacity-[0.85] disabled:opacity-50 w-full mt-4"
                 >
                     {submitting ? "Verifying..." : "Verify Account"}
-                </button>
+                </button> */}
                 <hr className="border-[#BBC9C7] mt-4" />
 
                 <p className="text-sm text-[#4A5568] text-center py-4"> Still having trouble? contact <Link className="text-[#2EC5BC]">support</Link></p>
