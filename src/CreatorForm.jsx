@@ -9,6 +9,7 @@ export default function CreatorForm() {
     const [formInput, setFormInput] = useState({name: "", email: "", password: ""});
     const [errorMessage, setErrorMessage] = useState("");
     const [boxChecked, setBoxChecked] = useState(false);
+    const [creatingAccount, setCreatingAccount] = useState(false);
     //const [accountCreated, setAccountCreated] = useState(false);
     const navigate = useNavigate();
     
@@ -24,6 +25,7 @@ async function createAccount() {
         setErrorMessage("You must agree to the Terms of Service to continue.")
         return
     }
+     setCreatingAccount(true);
     try {
     const response = await fetch("https://web-dev-course-1.onrender.com/accounts/creator-register", {
         method: "POST",
@@ -41,6 +43,8 @@ async function createAccount() {
     // setFormInput({name: "", email: "", password: ""});
 } catch (error) {
     setErrorMessage(error.message)
+} finally {
+    setCreatingAccount(false);
 }
 }
     return (
@@ -55,6 +59,7 @@ async function createAccount() {
                 <h3 className="font-bold text-[32px] text-[#002F71]">Create Your Account</h3>
                 <h4 className="text-base text-[#4A5568] font-[400]">Contribute to providing the world's best educational resources today.</h4>
             </div>
+            {errorMessage && (<p className="text-red-600 text-sm">{errorMessage}</p>)}
             <form className="flex flex-col gap-6 mt-2"
                 onSubmit={(e)=>{
                     e.preventDefault();
@@ -86,7 +91,8 @@ async function createAccount() {
                     </div>
                 </div>
                 <div className="flex flex-col text-center ">
-                    <button className="rounded-full bg-[#2EC5BC] px-10 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85]">Create account</button>
+                    <button type="submit" disabled={creatingAccount}
+                    className="rounded-full bg-[#2EC5BC] px-10 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85]">{creatingAccount ? "Creating account..." : "Create account"}</button>
                     {/* <div className="pt-8 border-t border-[#BBC9C7] mt-4 text-base font-[400] text-[#4A5568]">
                         <p >Already have an account? <Link to="/sign-in" className="text-base font-semibold text-[#2EC5BC]">Log in</Link></p>
                     </div> */}
@@ -95,9 +101,6 @@ async function createAccount() {
             {/* {accountCreated && (
                 <p>Account Successfully Created. <Link to="/dashboard">Go to Your Dashboard</Link></p>
             )}; */}
-            {errorMessage && (
-                <p>Your account creation failed. Check your details and try again.</p>
-            )}
             
         </div>
     </div>
