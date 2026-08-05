@@ -10,6 +10,7 @@ import CreateNewPassword from "./CreateNewPassword";
 import PasswordChanged from "./PasswordChanged";
 import Dashboard from "./Dashboard";
 import CreatorForm from "./CreatorForm";
+import Purchases from "./Purchases";
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/changed-password" element={<PasswordChanged/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/creator-register" element={<CreatorForm/>}/>
+          <Route path="/dashboard/purchases" element={<Purchases/>}/>
         </Routes>
       </BrowserRouter>
     </div>
