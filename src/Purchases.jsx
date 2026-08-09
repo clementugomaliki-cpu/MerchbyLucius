@@ -19,7 +19,7 @@ export default function Purchases() {
       <PagesHeader/>
       <div className="bg-[#F8FAFB] flex gap-6">
         <Sidebar/>
-        <div className="flex-1 min-h-screen mt-34 md:mt-24 md:ml-72 px-4 sm:px-8 md:px-12 py-8">
+        <div className="flex-1 min-h-screen mt-24 md:ml-72 px-4 sm:px-8 md:px-12 py-8">
           <h2 className="font-extrabold text-2xl text-[#4A5568]">Your Purchases</h2>
           <p className="text-base/6 text-[#6B7280]">Manage your educational treasures and continue the learning journey.</p>
           <div className="hidden md:flex gap-3 py-8">

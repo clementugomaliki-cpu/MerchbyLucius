@@ -13,7 +13,7 @@ export default function Dashboard() {
       <PagesHeader/>
       <div className="bg-[#F8FAFB] flex gap-6">
         <Sidebar/>
-        <div className="flex-1 min-h-screen mt-24 ml-72 px-12 py-8">
+        <div className="flex-1 min-h-screen mt-24 md:ml-72 px-4 sm:px-8 md:px-12 py-8">
           THIS IS THE DASHBOARD SECTION
         </div>
       </div>

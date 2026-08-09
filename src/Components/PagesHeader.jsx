@@ -1,4 +1,4 @@
-import { Link } from "react-router"
+import { Link, NavLink } from "react-router"
 import { LuMenu, LuX } from "react-icons/lu";
 import logo from "../images/logo.png"
 import smlogo from "../images/smlogo.png"
@@ -55,26 +55,26 @@ export default function PagesHeader() {
                     <MdNotificationsNone className="text-2xl"/>
                   </div>
               </div>
-              <Link to="/dashboard" onClick={()=> setIsMenuOpen(false)} className=" flex items-center gap-2 focus:bg-[#2EC5BC] focus:text-white py-2">        
+              <NavLink to="/dashboard" end onClick={()=> setIsMenuOpen(false)} className=" flex items-center gap-2 focus:bg-[#2EC5BC] focus:text-white py-2">        
                   <MdDashboard/>
                   DASHBOARD
-              </Link>
-              <Link  onClick={()=> setIsMenuOpen(false)} className=" flex items-center gap-2 focus:bg-[#2EC5BC] focus:text-white py-2">        
+              </NavLink>
+              <NavLink to="/dashboard/purchases"  onClick={()=> setIsMenuOpen(false)} className=" flex items-center gap-2 focus:bg-[#2EC5BC] focus:text-white py-2">        
                   <MdOutlineInventory2/>
                   PURCHASES
-              </Link>
-              <Link  onClick={()=> setIsMenuOpen(false)} className=" flex items-center gap-2 focus:bg-[#2EC5BC] focus:text-white py-2">        
+              </NavLink>
+              <NavLink to="/dashboard/activity"  onClick={()=> setIsMenuOpen(false)} className=" flex items-center gap-2 focus:bg-[#2EC5BC] focus:text-white py-2">        
                   <MdOutlinePoll/>
                   ACTIVITY
-              </Link>
-              <Link  onClick={()=> setIsMenuOpen(false)} className=" flex items-center gap-2 focus:bg-[#2EC5BC] focus:text-white py-2">        
+              </NavLink>
+              <NavLink to="/dashboard/rewards"  onClick={()=> setIsMenuOpen(false)} className=" flex items-center gap-2 focus:bg-[#2EC5BC] focus:text-white py-2">        
                   <GiStarMedal/>
                   REWARDS
-              </Link>
-              <Link  onClick={()=> setIsMenuOpen(false)} className=" flex items-center gap-2 focus:bg-[#2EC5BC] focus:text-white py-2">        
+              </NavLink>
+              <NavLink to="/dashboard/settings"  onClick={()=> setIsMenuOpen(false)} className=" flex items-center gap-2 focus:bg-[#2EC5BC] focus:text-white py-2">        
                   <MdOutlineBrightness5/>
                   SETTINGS
-              </Link>
+              </NavLink>
             </div>
         </div>
       </header>
