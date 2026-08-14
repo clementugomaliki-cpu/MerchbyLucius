@@ -8,6 +8,11 @@ import VerificationSuccess from "./VerificationSuccess";
 import ForgotPassword from "./ForgotPassword";
 import CreateNewPassword from "./CreateNewPassword";
 import PasswordChanged from "./PasswordChanged";
+import Dashboard from "./Dashboard";
+import CreatorForm from "./CreatorForm";
+import Purchases from "./Purchases";
+import Activity from "./Activity";
+import Settings from "./Settings";
 
 export default function App() {
   return (
@@ -18,10 +23,15 @@ export default function App() {
           <Route path="/sign-in" element={<LoginPage/>}/>
           <Route path="/sign-up" element={<SignUpPage/>}/>
           <Route path="/verify-email" element={<VerifyEmail/>}/>
-          <Route path="/dashboard" element={<VerificationSuccess/>}/>
+          <Route path="/verify-success" element={<VerificationSuccess/>}/>
           <Route path="/forgot-password" element={<ForgotPassword/>}/>
           <Route path="/reset-password" element={<CreateNewPassword/>}/>
           <Route path="/changed-password" element={<PasswordChanged/>}/>
+          <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/creator-register" element={<CreatorForm/>}/>
+          <Route path="/dashboard/purchases" element={<Purchases/>}/>
+          <Route path="/dashboard/activity" element={<Activity/>}/>
+          <Route path="/dashboard/settings" element={<Settings/>}/>
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,8 +1,12 @@
 import { Link } from "react-router";
 import bubblesImage from "./images/bubbles.png";
 import { LuEye, LuEyeOff } from "react-icons/lu";
+import bubblesImage from "./images/bubbles.png";
+import { LuEye, LuEyeOff, LuMenu, LuX } from "react-icons/lu";
 import { useState } from "react";
 import logo from "./images/logo.png";
+import smlogo from "./images/smlogo.png";
+import Navbar from "./Navbar";
 
 export default function SignUpPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -10,11 +14,9 @@ export default function SignUpPage() {
   function togglePasswordType() {
     setShowPassword(!showPassword);
   }
-
   return (
     <>
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white px-6 md:px-20 py-6 shadow-sm">
+      <header className="px-20 py-6 bg-white fixed top-0 right-0 left-0 z-50 border border-[#FFFFFF] shadow-xs">
         <Link to="/">
           <img
             src={logo}
@@ -23,124 +25,97 @@ export default function SignUpPage() {
           />
         </Link>
       </header>
-
-      {/* Main Section */}
-      <div className="flex flex-col md:flex-row min-h-screen pt-24">
-        {/* Left Bubble Panel */}
-        <div className="hidden md:flex w-1/2 min-h-screen bg-[#2EC5BC]">
-          <img
-            src={bubblesImage}
-            alt="Background bubbles"
-            className="w-full h-full object-cover"
-          />
+      <div className="flex pt-25">
+        <div className="md:h-screen md:w-2/4 bg-[#2EC5BC] flex justify-center items-center">
+          <img src={bubblesImage} alt="" />
         </div>
-
-        {/* Right Form Panel */}
-        <div className="flex-1 flex items-center justify-center px-6 py-8 md:px-12">
-          <div className="w-full max-w-md lg:max-w-lg flex flex-col gap-8">
-            {/* Heading */}
-            <div>
-              <h3 className="font-bold text-[28px] md:text-[36px] text-[#002F71] leading-tight">
-                Create Your Account
-              </h3>
-
-              <h4 className="text-base text-[#4A5568] mt-2">
-                Access the world's best educational resources today.
-              </h4>
-            </div>
-
-            {/* Form */}
-            <form className="flex flex-col gap-6">
-              {/* Full Name */}
-              <label
-                htmlFor="name"
-                className="font-bold text-sm text-[#002F71]"
-              >
-                Full Name
+        <div className="flex flex-col justify-center p-16 py-8 gap-8 mx-auto">
+          <div className="flex flex-col">
+            <h3 className="font-bold text-[32px] text-[#002F71]">
+              Create Your Account
+            </h3>
+            <h4 className="text-base text-[#4A5568] font-[400]">
+              Access the world's best educational resources today.
+            </h4>
+          </div>
+          <form className="flex flex-col gap-6 mt-2">
+            <label htmlFor="name" className="font-bold text-sm text-[#002F71]">
+              Full Name
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter your full name"
+                className="block border px-5 py-2 mt-1.5 rounded-2xl border-[#BBC9C7] w-full outline-none placeholder:font-light"
+              />
+            </label>
+            <label htmlFor="email" className="font-bold text-sm text-[#002F71]">
+              Email Address
+              <input
+                type="email"
+                name="email"
+                placeholder="name@example.com"
+                className="block border px-5 py-2 mt-1.5 rounded-2xl border-[#BBC9C7] w-full outline-none placeholder:font-light"
+              />
+            </label>
+            <label
+              htmlFor="password"
+              className="font-bold text-sm text-[#002F71]"
+            >
+              Password
+              <div className="relative">
                 <input
-                  type="text"
-                  name="name"
-                  placeholder="Enter your full name"
-                  className="block w-full h-12 px-5 mt-2 rounded-2xl border border-[#BBC9C7] outline-none placeholder:font-light"
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder={
+                    showPassword ? "Enter your password" : "********"
+                  }
+                  className="block border px-5 py-2 mt-1.5 rounded-2xl border-[#BBC9C7] w-full outline-none placeholder:font-light"
                 />
-              </label>
-
-              {/* Email */}
-              <label
-                htmlFor="email"
-                className="font-bold text-sm text-[#002F71]"
-              >
-                Email Address
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="name@example.com"
-                  className="block w-full h-12 px-5 mt-2 rounded-2xl border border-[#BBC9C7] outline-none placeholder:font-light"
-                />
-              </label>
-
-              {/* Password */}
-              <label
-                htmlFor="password"
-                className="font-bold text-sm text-[#002F71]"
-              >
-                Password
-                <div className="relative mt-2">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    name="password"
-                    placeholder={
-                      showPassword ? "Enter your password" : "********"
-                    }
-                    className="block w-full h-12 px-5 rounded-2xl border border-[#BBC9C7] outline-none placeholder:font-light"
-                  />
-
-                  <button
-                    type="button"
-                    onClick={togglePasswordType}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-lg text-gray-500"
-                  >
-                    {showPassword ? <LuEye /> : <LuEyeOff />}
-                  </button>
-                </div>
-              </label>
-
-              {/* Terms */}
-              <div className="flex items-start gap-3">
-                <input
-                  type="checkbox"
-                  className="mt-1 h-4 w-4 border border-[#BBC9C7]"
-                />
-
-                <p className="text-xs text-[#4A5568] leading-5">
+                <button
+                  type="button"
+                  className="absolute top-1/4 right-4 text-lg"
+                  onClick={togglePasswordType}
+                >
+                  {showPassword ? <LuEye /> : <LuEyeOff />}
+                </button>
+              </div>
+            </label>
+            <div className="flex items-center gap-3 rounded-xs">
+              <input
+                type="checkbox"
+                className="h-5 w-5 border border-[#BBC9C7]"
+              />
+              <div className="text-xs font-semibold">
+                <p className="text-[#4A5568]">
                   By creating an account, you agree to our{" "}
-                  <Link className="text-[#2EC5BC] font-semibold">
-                    Terms of Service
+                  <Link>
+                    <span className="text-[#2EC5BC]">Terms of Service</span>
+                  </Link>{" "}
+                  and{" "}
+                  <Link>
+                    <span className="text-[#2EC5BC] block">Privacy Policy</span>
                   </Link>
-                  and
-                  <Link className="text-[#2EC5BC] font-semibold">
-                    Privacy Policy
-                  </Link>
-                  .
                 </p>
               </div>
-            </form>
-
-            {/* Button */}
-            <div className="flex flex-col">
-              <Link
-                to="/verify-email"
-                className="h-12 rounded-full bg-[#2EC5BC] flex items-center justify-center text-white font-semibold hover:opacity-90 transition"
-              >
-                Create Account
-              </Link>
-
-              <div className="border-t border-[#BBC9C7] mt-8 pt-6 text-center text-[#4A5568]">
+            </div>
+          </form>
+          <div className="flex flex-col text-center ">
+            <Link
+              to="/verify-email"
+              className="rounded-full bg-[#2EC5BC] px-10 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85]"
+            >
+              Create account
+            </Link>
+            <div className="sm:pt-8 border-t border-[#BBC9C7] mt-4 text-base font-[400] text-[#4A5568]">
+              <p>
                 Already have an account?{" "}
-                <Link to="/sign-in" className="font-semibold text-[#2EC5BC]">
+                <Link
+                  to="/sign-in"
+                  className="text-base font-semibold text-[#2EC5BC]"
+                >
                   Log in
                 </Link>
-              </div>
+              </p>
             </div>
           </div>
         </div>

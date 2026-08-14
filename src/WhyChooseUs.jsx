@@ -34,7 +34,7 @@ export default function WhyChooseUs() {
         />
       </div>
 
-      <button className="mt-12 md:mt-20 bg-[#2EC5BC] px-12 py-3 rounded-full font-bold text-lg text-white">
+      <button className="mt-12 md:mt-20 bg-[#2EC5BC] px-8 sm:px-12 py-3 rounded-full font-bold text-lg text-white">
         Explore the Bookstore
       </button>
     </div>
