@@ -1,7 +1,5 @@
 import { Link } from "react-router";
 import bubblesImage from "./images/bubbles.png";
-import { LuEye, LuEyeOff } from "react-icons/lu";
-import bubblesImage from "./images/bubbles.png";
 import { LuEye, LuEyeOff, LuMenu, LuX } from "react-icons/lu";
 import { useState } from "react";
 import logo from "./images/logo.png";
