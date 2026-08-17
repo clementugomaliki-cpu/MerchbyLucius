@@ -35,7 +35,7 @@ async function signIn() {
     setErrorMessage("");
     setFormInput({email: "", password: ""});
     localStorage.setItem("token", data.userToken);
-    navigate("/dashboard");
+    navigate("/creator-dashboard");
 
 } catch (err) {
     console.log(err);

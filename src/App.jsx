@@ -13,6 +13,7 @@ import CreatorForm from "./CreatorForm";
 import Purchases from "./Purchases";
 import Activity from "./Activity";
 import Settings from "./Settings";
+import CreatorDashboard from "./CreatorDashboard";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/dashboard/purchases" element={<Purchases/>}/>
           <Route path="/dashboard/activity" element={<Activity/>}/>
           <Route path="/dashboard/settings" element={<Settings/>}/>
+          <Route path="/creator-dashboard" element={<CreatorDashboard/>}/>
         </Routes>
       </BrowserRouter>
     </div>

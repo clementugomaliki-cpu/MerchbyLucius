@@ -120,7 +120,7 @@ export default function Settings() {
                           <span className="text-[10px] text-[#3C4948] font-[400]">CARD NUMBER</span>                          
                             <div className="px-4 pt-[13px] pb-[14px] bg-[#F2F4F5] rounded-md flex items-center gap-2">
                               <MdOutlineCreditCard className="text-xl"/>
-                              <input placeholder="0000 0000 0000 0000" className="outline-none"/>
+                              <input placeholder="0000 0000 0000 0000" className="outline-none flex-1"/>
                             </div>   
                       </div>
                       <div className="grid grid-cols-2 gap-6">
@@ -131,7 +131,7 @@ export default function Settings() {
                       </div>
                       <div className="flex flex-col gap-2 pt-6">
                           <span className="text-[10px] text-[#3C4948] font-[400]">CVV</span>                          
-                            <input className="px-4 pt-[13px] pb-[14px] bg-[#F2F4F5] rounded-md flex items-center gap-2" placeholder="123"/>  
+                            <input className="px-4 pt-[13px] pb-[14px] bg-[#F2F4F5] rounded-md flex items-center gap-2 outline-none" placeholder="123"/>  
                       </div>
                       </div>
                       <div className="flex gap-2 text-[#3C4948] font-[400] pt-6 items-center">
