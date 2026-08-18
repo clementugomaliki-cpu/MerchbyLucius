@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import CreatorBenefits from "./Components/CreatorBenefits";
 import globeIcon from "./images/globe.png";
 import noteIcon from "./images/note.png";
@@ -24,9 +25,9 @@ export default function CreatorSection() {
           families and make a lasting impact on how the next generation learns.
         </p>
         <div className="font-bold text-base flex flex-col items-center sm:flex-row gap-4 mt-4">
-          <button className="rounded-full bg-[#2EC5BC] px-10 py-3 text-white">
+          <Link to="/creator-register" className="rounded-full bg-[#2EC5BC] px-10 py-3 text-white">
             Join as Creator
-          </button>
+          </Link>
           <button className="border rounded-full border-[#2EC5BC] px-10 py-3 text-[#2EC5BC]">
             Learn How it Works
           </button>
