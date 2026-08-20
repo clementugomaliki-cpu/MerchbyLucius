@@ -20,7 +20,7 @@ function DashboardHeader() {
         <img src={card} alt="" className='item-center mx-auto w-5 h-5' />
      </div>
      <div className="py-1">
-        <p className='text-[12px] font-bold'>TOTAL SPENDING</p>
+        <p className='text-[12px] font-bold '>TOTAL SPENDING</p>
         <h1 className='text-2xl font-semibold text-[#002F71]'>N342.50</h1>
 
      </div>
