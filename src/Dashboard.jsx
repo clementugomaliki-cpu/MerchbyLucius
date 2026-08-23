@@ -1,22 +1,30 @@
-import { Link } from "react-router"
-import { LuMenu, LuX } from "react-icons/lu";
-import avatar from "./images/profile-avatar.png";
-import { useState } from "react";
 
-import PagesHeader from "./Components/PagesHeader";
-import Sidebar from "./Components/Sidebar";
-
-export default function Dashboard() {
-  
+import DashboardAside from "./DashboardAside"
+import DashboardNav from "./DashboardNav"
+import DashboardHeader from "./DashboardHeader"
+import DashboardStatistics from "./DashboardStatistics"
+import DasshboardCard from "./DasshboardCard"
+import { DownloadProvider } from "./Download"
+import DashboardStar from "./DashboardStar"
+import DashboardFooter from "./DashboardFooter"
+function Dashboard() {
   return (
-    <div>
-      <PagesHeader/>
-      <div className="bg-[#F8FAFB] flex gap-6">
-        <Sidebar/>
-        <div className="flex-1 min-h-screen mt-24 md:ml-72 px-4 sm:px-8 md:px-12 py-8">
-          THIS IS THE DASHBOARD SECTION
+    <div >
+          <DashboardNav/>
+          <div className="grid ">
+          <DashboardAside/>
+          </div>
+          <div className="max-w-[90px] w-full mx-78 px-2">
+             <DashboardHeader/>
+             <DownloadProvider>
+            <DashboardStatistics/> 
+            <DasshboardCard/> 
+            <DashboardStar/> 
+            <DashboardFooter/>
+            </DownloadProvider> 
+          </div>
         </div>
-      </div>
-    </div>
+
   )
 }
+export default Dashboard

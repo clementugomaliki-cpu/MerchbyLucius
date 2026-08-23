@@ -1,6 +1,6 @@
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router";
-import alphabet from "./assets/images/alphabet.png";
+import alphabet from "./assets/images/lion.png";
 import nature from "./assets/images/nature.png";
 import spacemath from "./assets/images/spacemath.png";
 import FeaturedCard from "./Components/FeaturedCard";
@@ -11,28 +11,28 @@ export default function Featured() {
       title: "Alphabet Adventure Pack",
       image: alphabet,
       badgeText: "WORKSHEET",
-      badgeColor: "bg-[#2EC5BC]/90",
+      badgeColor: "Download",
       reviewCount: 124,
     },
     {
       title: "Space Explorers Math",
       image: spacemath,
-      badgeText: "INTERACTIVE",
-      badgeColor: "bg-[#002F71]/90",
+      badgeText: "MATH",
+      badgeColor: "Download",
       reviewCount: 89,
     },
     {
       title: "Space Explorers Math",
       image: spacemath,
-      badgeText: "INTERACTIVE",
-      badgeColor: "bg-[#002F71]/90",
+      badgeText: "BUNDLE",
+      badgeColor: "Download",
       reviewCount: 89,
     },
     {
       title: "Nature Journaling Kit",
       image: nature,
-      badgeText: "EBOOK",
-      badgeColor: "bg-[#2EC5BC]/90",
+      badgeText: "PHONICS",
+      badgeColor: "Download",
       reviewCount: 56,
     },
   ];
