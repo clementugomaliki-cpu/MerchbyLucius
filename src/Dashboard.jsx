@@ -1,5 +1,5 @@
 
-import DashboardAside from "./DashboardAside"
+// import DashboardAside from "./DashboardAside"
 import DashboardNav from "./DashboardNav"
 import DashboardHeader from "./DashboardHeader"
 import DashboardStatistics from "./DashboardStatistics"
@@ -7,14 +7,16 @@ import DasshboardCard from "./DasshboardCard"
 import { DownloadProvider } from "./Download"
 import DashboardStar from "./DashboardStar"
 import DashboardFooter from "./DashboardFooter"
+import PagesHeader from "./Components/PagesHeader"
+import Sidebar from "./Components/Sidebar"
 function Dashboard() {
   return (
     <div >
-          <DashboardNav/>
-          <div className="grid ">
-          <DashboardAside/>
+          <PagesHeader/>
+          <div>
+          <Sidebar/>
           </div>
-          <div className="max-w-[90px] w-full mx-78 px-2">
+          <div>
              <DashboardHeader/>
              <DownloadProvider>
             <DashboardStatistics/> 
