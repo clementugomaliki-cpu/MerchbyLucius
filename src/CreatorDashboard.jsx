@@ -6,6 +6,12 @@ import moneyBadgeIcon from "./images/Container.svg";
 import StatCard from "./Components/StatCard";
 import SalesPerformanceChart from "./Components/SalesPerformanceChart";
 import RecentActivity from "./Components/RecentActivity";
+import ProductSection from "./Components/ProductSection";
+import alphabetPackImg from "./images/alphabet-pack.png";
+import spaceExplorersImg from "./images/space-explorers.png";
+import alphabetBundleImg from "./images/alphabet-bundle.png";
+import phonicsImg from "./images/phonics.png";
+import RewardsFooter from "./Components/RewardsFooter";
 
 export default function CreatorDashboard() {
   // TEMPORARY MOCK DATA — replace with your real API data. For you Mr. Clement
@@ -64,6 +70,62 @@ export default function CreatorDashboard() {
       time: "Yesterday",
     },
   ];
+  const mockProducts = [
+    {
+      id: 1,
+      image: alphabetPackImg,
+      title: "Alphabet Adventure Pack",
+      tag: "WORKSHEET",
+    },
+    {
+      id: 2,
+      image: spaceExplorersImg,
+      title: "Space Explorers Math",
+      tag: "MATH",
+    },
+    {
+      id: 3,
+      image: alphabetBundleImg,
+      title: "Alphabet Adventure Pack",
+      tag: "BUNDLE",
+    },
+    { id: 4, image: phonicsImg, title: "Phonics Fun Volume 1", tag: "PHONICS" },
+  ];
+
+  const mockTopProducts = [
+    {
+      id: 1,
+      image: alphabetPackImg,
+      title: "Alphabet Adventure Pack",
+      tag: "WORKSHEET",
+      rating: 5,
+      reviewCount: 56,
+    },
+    {
+      id: 2,
+      image: spaceExplorersImg,
+      title: "Space Explorers Math",
+      tag: "MATH",
+      rating: 5,
+      reviewCount: 89,
+    },
+    {
+      id: 3,
+      image: alphabetBundleImg,
+      title: "Alphabet Adventure Pack",
+      tag: "BUNDLE",
+      rating: 5,
+      reviewCount: 89,
+    },
+    {
+      id: 4,
+      image: phonicsImg,
+      title: "Phonics Fun Volume 1",
+      tag: "PHONICS",
+      rating: 5,
+      reviewCount: 89,
+    },
+  ];
 
   return (
     <div className="flex mt-24">
@@ -118,6 +180,22 @@ export default function CreatorDashboard() {
         <div className="flex gap-6 mt-6">
           <SalesPerformanceChart data={mockChartData} />
           <RecentActivity activities={mockActivity} />
+        </div>
+        <ProductSection
+          title="Your Products"
+          subtitle="Manage and track your educational materials"
+          products={mockProducts}
+        />
+        <div className="flex flex-col gap-6 mt-6">
+          <ProductSection
+            title="Top Performing Products"
+            subtitle="Explore your top performing products here."
+            products={mockTopProducts}
+          />
+          <RewardsFooter
+            salesCount={mockStats.last28Days.totalEarnings}
+            onViewSales={() => console.log("View sales clicked")}
+          />
         </div>
       </div>
     </div>
