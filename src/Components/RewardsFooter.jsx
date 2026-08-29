@@ -1,58 +1,31 @@
-import medalIcon from "../images/medal-icon.svg";
+import medalIcon from "../images/medal-icon.svg"; // confirm your actual filename
 
 export default function RewardsFooter({
   salesCount = 0,
   onViewSales = () => {},
 }) {
   return (
-    <div className="relative w-[961px] h-[288px] rounded-[48px] bg-[#002F71]/90 overflow-hidden">
-      <div className="absolute top-[78px] left-10 flex flex-col gap-4 w-[461px] h-[148px]">
-        <div className="flex flex-col gap-2">
-          <h3
-            className="text-white w-[461px] h-9"
-            style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontWeight: 800,
-              fontSize: "30px",
-              lineHeight: "36px",
-              letterSpacing: "-0.75px",
-            }}
-          >
+    <div className="w-full max-w-[961px] rounded-[32px] sm:rounded-[48px] bg-[#002F71]/90 p-6 sm:p-10 flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6">
+      <div className="flex flex-col gap-3 text-center sm:text-left">
+        <div className="flex flex-col gap-1">
+          <h3 className="text-white text-xl sm:text-3xl font-extrabold leading-snug">
             {`You've made ${salesCount} Sales so far!`}
           </h3>
-          <p
-            className="text-white w-[448px] h-6"
-            style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontWeight: 500,
-              fontSize: "16px",
-              lineHeight: "24px",
-              opacity: 0.8,
-            }}
-          >
+          <p className="text-white text-sm sm:text-base font-medium">
             Keep creating great learning materials.
           </p>
         </div>
 
         <button
           onClick={onViewSales}
-          className="w-[197px] h-12 rounded-full bg-[#2EC5BC] text-white flex items-center justify-center"
-          style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontWeight: 700,
-            fontSize: "16px",
-            lineHeight: "24px",
-          }}
+          className="w-full sm:w-[197px] h-12 rounded-full bg-[#2EC5BC] text-white font-bold text-sm sm:text-base flex items-center justify-center"
         >
           View Sales
         </button>
       </div>
 
-      <div
-        className="absolute rounded-full bg-white/10 border-4 border-white/20 flex items-center justify-center"
-        style={{ top: "56px", left: "727px", width: "192px", height: "192px" }}
-      >
-        <img src={medalIcon} alt="" className="w-10 h-20" />
+      <div className="w-24 h-24 sm:w-48 sm:h-48 rounded-full bg-white/10 border-4 border-white/20 flex items-center justify-center shrink-0">
+        <img src={medalIcon} alt="" className="w-10 h-10" />
       </div>
     </div>
   );

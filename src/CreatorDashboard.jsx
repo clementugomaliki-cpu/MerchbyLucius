@@ -12,30 +12,53 @@ import spaceExplorersImg from "./images/space-explorers.png";
 import alphabetBundleImg from "./images/alphabet-bundle.png";
 import phonicsImg from "./images/phonics.png";
 import RewardsFooter from "./Components/RewardsFooter";
+import creatorAvatar from "./images/creatorphoto.png";
+import {
+  MdDashboard,
+  MdOutlineInventory2,
+  MdOutlinePoll,
+  MdOutlineBrightness5,
+} from "react-icons/md";
+import { GiStarMedal } from "react-icons/gi";
 
 export default function CreatorDashboard() {
-  // TEMPORARY MOCK DATA — replace with your real API data. For you Mr. Clement
+  const user = { name: "Lucius", status: "active", avatar: creatorAvatar };
 
-  // make sure users has this structure
-  const user = {
-    name: "Lucius",
-    status: "active",
-  };
+  const creatorNavLinks = [
+    {
+      to: "/creator-dashboard",
+      label: "DASHBOARD",
+      icon: <MdDashboard />,
+      end: true,
+    },
+    {
+      to: "/creator-dashboard/products",
+      label: "MY PRODUCTS",
+      icon: <MdOutlineInventory2 />,
+    },
+    {
+      to: "/creator-dashboard/sales",
+      label: "SALES ANALYTICS",
+      icon: <MdOutlinePoll />,
+    },
+    {
+      to: "/creator-dashboard/payouts",
+      label: "PAYOUTS",
+      icon: <GiStarMedal />,
+    },
+    {
+      to: "/creator-dashboard/settings",
+      label: "SETTINGS",
+      icon: <MdOutlineBrightness5 />,
+    },
+  ];
 
-  // make sure the stats has this strucrure
   const mockStats = {
     totalEarnings: 342.5,
-    last7Days: {
-      newEarnings: 2,
-      downloads: 5,
-    },
-    last28Days: {
-      totalEarnings: 8,
-      downloads: 12,
-    },
+    last7Days: { newEarnings: 2, downloads: 5 },
+    last28Days: { totalEarnings: 8, downloads: 12 },
   };
 
-  // make sure the chartData has this structure
   const mockChartData = [
     { date: "May 01", revenue: 20 },
     { date: "May 10", revenue: 45 },
@@ -43,7 +66,6 @@ export default function CreatorDashboard() {
     { date: "May 30", revenue: 60 },
   ];
 
-  // the activity structure
   const mockActivity = [
     {
       id: 1,
@@ -70,6 +92,7 @@ export default function CreatorDashboard() {
       time: "Yesterday",
     },
   ];
+
   const mockProducts = [
     {
       id: 1,
@@ -128,21 +151,19 @@ export default function CreatorDashboard() {
   ];
 
   return (
-    <div className="flex mt-24">
-      <PagesHeader />
-      <CreatorDashboardSidebar />
-      <div className="flex-1 ml-68 p-6 bg-[#F2F4F5]">
-        <header className="flex justify-between items-center">
-          {/* left */}
+    <div className="flex mt-24 sm:mt-16 overflow-x-hidden">
+      <PagesHeader user={user} navLinks={creatorNavLinks} />
+      <CreatorDashboardSidebar user={user} />
+      <div className="flex-1 w-full ml-0 md:ml-80 p-4 sm:p-6 bg-[#F2F4F5]">
+        <header className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
           <div className="flex flex-col gap-1 text-black">
-            <p className="text-base font-extrabold text-[#4A5568]">{`Hello, ${user.name}! 👋`}</p>
-            <span className="text-[#6B7280]">
+            <p className="text-xl sm:text-base font-extrabold text-[#4A5568]">{`Hello, ${user.name}! 👋`}</p>
+            <span className="text-[#6B7280] text-sm">
               Ready for today's products adventure?
             </span>
           </div>
 
-          {/* right */}
-          <div className="flex items-center gap-3 bg-white rounded-2xl shadow px-5 py-3">
+          <div className="flex items-center gap-3 bg-white rounded-2xl shadow px-5 py-3 w-full sm:w-auto">
             <div className="w-14 h-14 rounded-2xl bg-[#FFA952] flex items-center justify-center shrink-0">
               <img src={moneyBadgeIcon} alt="" className="w-6 h-6" />
             </div>
@@ -154,7 +175,8 @@ export default function CreatorDashboard() {
             </div>
           </div>
         </header>
-        <div className="flex gap-6 mt-6">
+
+        <div className="flex flex-col sm:flex-row gap-6 mt-6">
           <StatCard
             title="Last 7 Days"
             badgeText="Live Activity"
@@ -177,21 +199,28 @@ export default function CreatorDashboard() {
             ]}
           />
         </div>
-        <div className="flex gap-6 mt-6">
+
+        <div className="flex flex-col lg:flex-row gap-6 mt-6">
           <SalesPerformanceChart data={mockChartData} />
           <RecentActivity activities={mockActivity} />
         </div>
-        <ProductSection
-          title="Your Products"
-          subtitle="Manage and track your educational materials"
-          products={mockProducts}
-        />
-        <div className="flex flex-col gap-6 mt-6">
+
+        <div className="overflow-x-auto">
           <ProductSection
-            title="Top Performing Products"
-            subtitle="Explore your top performing products here."
-            products={mockTopProducts}
+            title="Your Products"
+            subtitle="Manage and track your educational materials"
+            products={mockProducts}
           />
+        </div>
+
+        <div className="flex flex-col gap-6 mt-6">
+          <div className="overflow-x-auto">
+            <ProductSection
+              title="Top Performing Products"
+              subtitle="Explore your top performing products here."
+              products={mockTopProducts}
+            />
+          </div>
           <RewardsFooter
             salesCount={mockStats.last28Days.totalEarnings}
             onViewSales={() => console.log("View sales clicked")}

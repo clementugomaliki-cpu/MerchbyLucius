@@ -1,4 +1,5 @@
 import ProductCard from "./ProductCard";
+import { FaChevronRight } from "react-icons/fa";
 
 export default function ProductSection({ title, subtitle, products }) {
   return (
@@ -8,8 +9,8 @@ export default function ProductSection({ title, subtitle, products }) {
           <h3 className="text-lg font-bold text-[#4A5568]">{title}</h3>
           <p className="text-sm text-gray-500">{subtitle}</p>
         </div>
-        <button className="text-sm text-teal-500 font-semibold">
-          See All →
+        <button className="text-sm text-[#4A5568] font-semibold flex items-center justify-center gap-1 ">
+          See All <FaChevronRight size={10} />
         </button>
       </div>
       <div className="flex gap-8">

@@ -1,4 +1,4 @@
-import starIcon from "../images/rating-star.svg";
+import starIcon from "../images/rating-star.svg"; // ⚠️ confirm this matches your actual filename
 
 export default function ProductCard({
   id,
@@ -11,7 +11,8 @@ export default function ProductCard({
   const isTopPerformer = rating !== undefined;
 
   return (
-    <div className="w-[216px] h-[414px] bg-white rounded-[32px] border border-[#F3F4F6] overflow-hidden flex flex-col">
+    <div className="w-[216px] bg-white rounded-[32px] border border-[#F3F4F6] overflow-hidden flex flex-col">
+      {/* Image + tag */}
       <div className="relative">
         <img
           src={image}
@@ -25,8 +26,11 @@ export default function ProductCard({
         )}
       </div>
 
-      <div className="p-4 flex flex-col gap-2">
-        <h4 className="font-bold text-[#4A5568] text-sm">{title}</h4>
+      {/* Content */}
+      <div className="p-4 flex flex-col gap-2 flex-1">
+        <h4 className="font-bold text-[#002F71] text-base leading-snug w-[159px] min-h-[56px]">
+          {title}
+        </h4>
 
         {isTopPerformer && (
           <div className="flex items-center gap-1">
@@ -37,29 +41,32 @@ export default function ProductCard({
           </div>
         )}
 
-        {isTopPerformer ? (
-          <button
-            className="w-[172px] h-10 rounded-[24px] bg-[#2EC5BC] text-white text-sm font-semibold"
-            onClick={() => console.log("Quick view:", id)}
-          >
-            Quick View
-          </button>
-        ) : (
-          <>
+        {/* Buttons — pinned to bottom of card via mt-auto */}
+        <div className="flex flex-col gap-2 mt-auto">
+          {isTopPerformer ? (
             <button
-              className="w-[172px] h-10 rounded-[24px] bg-[#2EC5BC] text-white text-sm font-semibold"
-              onClick={() => console.log("View product:", id)}
+              className="w-full h-10 rounded-[24px] bg-[#2EC5BC] text-white text-sm font-semibold"
+              onClick={() => console.log("Quick view:", id)}
             >
-              View Product
+              Quick View
             </button>
-            <button
-              className="w-[172px] h-10 rounded-[24px] border border-[#2EC5BC] text-[#2EC5BC] text-sm font-semibold bg-white"
-              onClick={() => console.log("Edit product:", id)}
-            >
-              Edit Product
-            </button>
-          </>
-        )}
+          ) : (
+            <>
+              <button
+                className="w-full h-10 rounded-[24px] bg-[#2EC5BC] text-white text-sm font-semibold"
+                onClick={() => console.log("View product:", id)}
+              >
+                View Product
+              </button>
+              <button
+                className="w-full h-10 rounded-[24px] border border-[#2EC5BC] text-[#2EC5BC] text-sm font-semibold bg-white"
+                onClick={() => console.log("Edit product:", id)}
+              >
+                Edit Product
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

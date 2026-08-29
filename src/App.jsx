@@ -14,27 +14,28 @@ import Purchases from "./Purchases";
 import Activity from "./Activity";
 import Settings from "./Settings";
 import CreatorDashboard from "./CreatorDashboard";
-
+import MyProducts from "./MyProducts";
 
 export default function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LandingPage/>}/>
-          <Route path="/sign-in" element={<LoginPage/>}/>
-          <Route path="/sign-up" element={<SignUpPage/>}/>
-          <Route path="/verify-email" element={<VerifyEmail/>}/>
-          <Route path="/verify-success" element={<VerificationSuccess/>}/>
-          <Route path="/forgot-password" element={<ForgotPassword/>}/>
-          <Route path="/reset-password" element={<CreateNewPassword/>}/>
-          <Route path="/changed-password" element={<PasswordChanged/>}/>
-          <Route path="/dashboard" element={<Dashboard/>}/>
-          <Route path="/creator-register" element={<CreatorForm/>}/>
-          <Route path="/dashboard/purchases" element={<Purchases/>}/>
-          <Route path="/dashboard/activity" element={<Activity/>}/>
-          <Route path="/dashboard/settings" element={<Settings/>}/>
-          <Route path="/creator-dashboard" element={<CreatorDashboard/>}/>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/sign-in" element={<LoginPage />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="/verify-success" element={<VerificationSuccess />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<CreateNewPassword />} />
+          <Route path="/changed-password" element={<PasswordChanged />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/creator-register" element={<CreatorForm />} />
+          <Route path="/dashboard/purchases" element={<Purchases />} />
+          <Route path="/dashboard/activity" element={<Activity />} />
+          <Route path="/dashboard/settings" element={<Settings />} />
+          <Route path="/creator-dashboard" element={<CreatorDashboard />} />
+          <Route path="/creator-dashboard/products" element={<MyProducts />} />
         </Routes>
       </BrowserRouter>
     </div>

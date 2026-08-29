@@ -7,13 +7,26 @@ import {
 } from "react-icons/md";
 import { GiStarMedal } from "react-icons/gi";
 import logo from "../images/logo.png";
+import creatorAvatar from "../images/creatorphoto.png";
 
-export default function CreatorDashboardSidebar() {
+export default function CreatorDashboardSidebar({ user }) {
   const linkClass = ({ isActive }) =>
     `flex items-center gap-2 rounded-xl py-2 px-4 text-sm ${isActive ? "bg-[#2EC5BC] text-white" : ""}`;
 
   return (
-    <div className="hidden md:flex flex-col w-64 fixed top-0 left-0 bottom-0 mt-24 bg-white gap-4 p-6 border-r border-[#BCC9C6] min-h-screen">
+    <div className="hidden md:flex flex-col w-80 fixed top-0 left-0 bottom-0 mt-24 bg-white gap-6 p-6  min-h-screen">
+      {/* Profile row */}
+      <div className="flex items-center gap-3 pb-4 mb-2">
+        <img
+          src={user?.avatar}
+          alt={user?.name}
+          className="w-12 h-12 rounded-xl object-cover"
+        />
+        <p className="font-bold text-[#4A5568] text-sm w-[90px]">
+          {user?.name}
+        </p>
+      </div>
+
       <NavLink to="/creator-dashboard" end className={linkClass}>
         <MdDashboard /> DASHBOARD
       </NavLink>
