@@ -1,17 +1,62 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import bubblesImage from "./images/bubbles.png";
-import { LuEye, LuEyeOff, LuMenu, LuX } from "react-icons/lu";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 import { useState } from "react";
 import logo from "./images/logo.png";
-import smlogo from "./images/smlogo.png";
-import Navbar from "./Navbar";
 
 export default function SignUpPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const [formInput, setFormInput] = useState({ name: "", email: "", password: "" });
+  const [errorMessage, setErrorMessage] = useState("");
+  const [boxChecked, setBoxChecked] = useState(false);
+  const [creatingAccount, setCreatingAccount] = useState(false);
+  const navigate = useNavigate();
 
   function togglePasswordType() {
-    setShowPassword(!showPassword);
+    setShowPassword((prev) => !prev);
   }
+
+  function setInput(e) {
+    setFormInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  async function createAccount() {
+    if (!boxChecked) {
+      setErrorMessage("You must agree to the Terms of Service to continue.");
+      return;
+    }
+
+    setCreatingAccount(true);
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("https://web-dev-course-1.onrender.com/accounts/purchaser-register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formInput,
+          role: "purchaser",
+          accountType: "purchaser",
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setErrorMessage(data.message || "Something went wrong while creating your account.");
+        return;
+      }
+
+      localStorage.setItem("userRole", "purchaser");
+      localStorage.setItem("user", JSON.stringify({ ...formInput, role: "purchaser" }));
+      navigate("/verify-email", { state: { email: formInput.email, accountType: "purchaser" } });
+    } catch (error) {
+      setErrorMessage(error.message || "Unable to create account right now.");
+    } finally {
+      setCreatingAccount(false);
+    }
+  }
+
   return (
     <>
       <header className="px-20 py-6 bg-white fixed top-0 right-0 left-0 z-50 border border-[#FFFFFF] shadow-xs">
@@ -36,13 +81,25 @@ export default function SignUpPage() {
               Access the world's best educational resources today.
             </h4>
           </div>
-          <form className="flex flex-col gap-6 mt-2">
+
+          {errorMessage && <p className="text-red-600 text-sm">{errorMessage}</p>}
+
+          <form
+            className="flex flex-col gap-6 mt-2"
+            onSubmit={(e) => {
+              e.preventDefault();
+              createAccount();
+            }}
+          >
             <label htmlFor="name" className="font-bold text-sm text-[#002F71]">
               Full Name
               <input
                 type="text"
                 name="name"
+                value={formInput.name}
+                onChange={setInput}
                 placeholder="Enter your full name"
+                required
                 className="block border px-5 py-2 mt-1.5 rounded-2xl border-[#BBC9C7] w-full outline-none placeholder:font-light"
               />
             </label>
@@ -51,22 +108,23 @@ export default function SignUpPage() {
               <input
                 type="email"
                 name="email"
+                value={formInput.email}
+                onChange={setInput}
                 placeholder="name@example.com"
+                required
                 className="block border px-5 py-2 mt-1.5 rounded-2xl border-[#BBC9C7] w-full outline-none placeholder:font-light"
               />
             </label>
-            <label
-              htmlFor="password"
-              className="font-bold text-sm text-[#002F71]"
-            >
+            <label htmlFor="password" className="font-bold text-sm text-[#002F71]">
               Password
               <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
-                  placeholder={
-                    showPassword ? "Enter your password" : "********"
-                  }
+                  value={formInput.password}
+                  onChange={setInput}
+                  placeholder={showPassword ? "Enter your password" : "********"}
+                  required
                   className="block border px-5 py-2 mt-1.5 rounded-2xl border-[#BBC9C7] w-full outline-none placeholder:font-light"
                 />
                 <button
@@ -81,6 +139,8 @@ export default function SignUpPage() {
             <div className="flex items-center gap-3 rounded-xs">
               <input
                 type="checkbox"
+                checked={boxChecked}
+                onChange={(e) => setBoxChecked(e.target.checked)}
                 className="h-5 w-5 border border-[#BBC9C7]"
               />
               <div className="text-xs font-semibold">
@@ -96,25 +156,23 @@ export default function SignUpPage() {
                 </p>
               </div>
             </div>
-          </form>
-          <div className="flex flex-col text-center ">
-            <Link
-              to="/verify-email"
-              className="rounded-full bg-[#2EC5BC] px-10 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85]"
+
+            <button
+              type="submit"
+              disabled={creatingAccount}
+              className="rounded-full bg-[#2EC5BC] px-10 py-3 mb-4 font-semibold text-white cursor-pointer hover:opacity-[0.85] disabled:opacity-60"
             >
-              Create account
-            </Link>
-            <div className="sm:pt-8 border-t border-[#BBC9C7] mt-4 text-base font-[400] text-[#4A5568]">
-              <p>
-                Already have an account?{" "}
-                <Link
-                  to="/sign-in"
-                  className="text-base font-semibold text-[#2EC5BC]"
-                >
-                  Log in
-                </Link>
-              </p>
-            </div>
+              {creatingAccount ? "Creating account..." : "Create account"}
+            </button>
+          </form>
+
+          <div className="sm:pt-8 border-t border-[#BBC9C7] mt-4 text-base font-[400] text-[#4A5568]">
+            <p>
+              Already have an account?{" "}
+              <Link to="/sign-in" className="text-base font-semibold text-[#2EC5BC]">
+                Log in
+              </Link>
+            </p>
           </div>
         </div>
       </div>
