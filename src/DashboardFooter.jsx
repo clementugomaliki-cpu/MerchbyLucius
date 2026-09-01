@@ -1,5 +1,5 @@
 import React from 'react'
-import badge from './assets/container.svg'
+import badge from './assets/Container.svg'
 function DashboardFooter() {
   return (
     <div className="w-234 h-72  bg-[#002F71E5] rounded-4xl pt-14 px-10 pb-10 mt-10">

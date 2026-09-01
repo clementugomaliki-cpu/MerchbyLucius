@@ -16,7 +16,7 @@ export default function AffiliateSection() {
                 <BenefitCard logo={<img src={homeIcon}/>} iconBg="bg-green-100 opacity-[0.7]" title="Real-time Data" paragraph="Access your personalized dashboard to track clicks, sales, and earnings in real-time."/>
                 <BenefitCard logo={<img src={frameIcon}/>} iconBg="bg-blue-100 opacity-[0.8]" title="Ad Creatives" paragraph="We provide professional banners and marketing copy to help you get started."/>
             </div>
-            <button className="md:mt-20 bg-[#2EC5BC] px-12 py-3 rounded-full font-bold text-lg text-gray-100 cursor-pointer">Become an Affiliate</button>
+            <button className="md:mt-20 bg-[#2EC5BC] px-12 py-3 rounded-full font-bold text-lg text-white cursor-pointer">Become an Affiliate</button>
         </div>
     )
 }
