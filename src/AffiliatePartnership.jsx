@@ -2,6 +2,7 @@ import AffiliateCard from "./Components/AffiliateCard";
 import dollar from "./assets/icons/dollar-icon.svg";
 import chart from "./assets/icons/chart-icon.svg";
 import layers from "./assets/icons/layers-icon.svg";
+import { Link } from "react-router";
 
 export default function AffliatePartnership() {
   const cards = [
@@ -46,9 +47,13 @@ export default function AffliatePartnership() {
           </div>
         ))}
       </div>
-      <button className="bg-[#2EC5BC] text-[#FFFFFF] font-semibold px-14 rounded-full flex items-center justify-center whitespace-nowrap h-12 ">
+
+      <Link
+        to="/become-affiliate"
+        className="bg-[#2EC5BC] text-[#FFFFFF] font-semibold px-14 rounded-full flex items-center justify-center whitespace-nowrap h-12"
+      >
         Become an Affiliate
-      </button>
+      </Link>
     </div>
   );
 }
