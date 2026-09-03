@@ -8,6 +8,11 @@ import AffiliateStar from "./images/affiliate-star.svg";
 import HighCommissionIcon from "./images/benefit-icon.svg";
 import RealTimeDataIcon from "./images/realtime-data-icon.svg";
 import AdCreativesIcon from "./images/ad-creatives-icon.svg";
+import WorkbookIcon from "./images/workbook.svg";
+import InteractiveIcon from "./images/interactive.svg";
+import CourseIcon from "./images/course.svg";
+import Journal from "./images/journal.svg";
+import { useState } from "react";
 
 // TEMP: mock earnings data — swap with real API data from backend dev
 const earningsData = {
@@ -72,6 +77,92 @@ const benefits = [
     iconBg: "bg-[#1A4379]/10",
   },
 ];
+
+// TEMP: mock featured resources data — swap with real API/CMS data from backend dev
+const resources = [
+  {
+    tag: "Workbook",
+    title: "Alphabet Adventure Pack",
+    rating: 5,
+    reviews: 134,
+    commission: 20,
+    bg: "bg-gradient-to-br from-[#FFAB55] to-[#FFD8AC]",
+    icon: WorkbookIcon,
+  },
+  {
+    tag: "Interactive",
+    title: "Space & Math Explorer",
+    rating: 5,
+    reviews: 98,
+    commission: 18,
+    bg: "bg-gradient-to-br from-[#1A4379] to-[#2C5FA0]",
+    icon: InteractiveIcon,
+  },
+  {
+    tag: "Course",
+    title: "Coding for Kids: Starter",
+    rating: 5,
+    reviews: 76,
+    commission: 20,
+    bg: "bg-gradient-to-br from-[#9FE3DB] to-[#C9F1EC]",
+    icon: CourseIcon,
+  },
+  {
+    tag: "Journal",
+    title: "Creative Arts Journal",
+    rating: 5,
+    reviews: 61,
+    commission: 15,
+    bg: "bg-gradient-to-br from-[#20A89F] to-[#3FCFC2]",
+    icon: Journal,
+  },
+];
+
+const faqs = [
+  {
+    question: "Who can become a MerchbyLucius affiliate?",
+    answer:
+      "Anyone with an audience of parents, educators, or caregivers — teachers, creators, and parenting communities are all welcome.",
+  },
+  {
+    question: "How and when do I get paid?",
+    answer: "", // TODO: fill in once content is ready
+  },
+  {
+    question: "How long does my referral link stay credited?",
+    answer: "", // TODO: fill in once content is ready
+  },
+  {
+    question: "Do you provide marketing materials?",
+    answer: "", // TODO: fill in once content is ready
+  },
+];
+
+function FaqItem({ faq }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border-b border-[#DCE4E2] py-[22px]">
+      <button
+        onClick={() => setIsOpen((prev) => !prev)}
+        className="flex w-full items-center justify-between gap-4 text-left"
+      >
+        <span className="text-[16px] font-medium text-[#1A4379]">
+          {faq.question}
+        </span>
+        <span className="flex h-[22px] w-[22px] flex-shrink-0 items-center justify-center text-[18px] font-bold text-[#1A4379]">
+          {isOpen ? "−" : "+"}
+        </span>
+      </button>
+
+      {isOpen && (
+        <p className="mt-3 max-w-[640px] text-[14.5px] leading-[24px] text-[#6D7582]">
+          {faq.answer || "Answer coming soon."}
+        </p>
+      )}
+    </div>
+  );
+}
 
 export default function AffiliateHero() {
   const navigate = useNavigate();
@@ -286,6 +377,193 @@ export default function AffiliateHero() {
           </div>
         </div>
       </section>
+      {/* Featured Resources */}
+      <section className="max-w-[1180px] mx-auto px-[24px] py-[64px]">
+        <p className="flex items-center gap-2 text-[12.5px] font-bold uppercase tracking-[1.2px] text-[#FFAB55]">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#FFAB55]" />
+          What you'll promote
+        </p>
+        <h2 className="mt-2 text-[34px] font-extrabold tracking-[-0.5px] text-[#1A4379]">
+          Featured Resources
+        </h2>
+        <div className="mt-3 h-1 w-[46px] rounded-full bg-[#FFAB55]" />
+        <p className="mt-4 max-w-[560px] text-[16.5px] leading-[26.4px] text-[#6D7582]">
+          Hand-picked, vetted learning products your audience will actually use
+          — each with commission built in.
+        </p>
+
+        <div className="mt-[36px] grid grid-cols-1 gap-[22px] sm:grid-cols-2 lg:grid-cols-4">
+          {resources.map((resource) => (
+            <div
+              key={resource.title}
+              className="overflow-hidden rounded-[14px] border border-[#DCE4E2] bg-white"
+            >
+              <div
+                className={`relative flex h-[160px] items-center justify-center ${resource.bg}`}
+              >
+                <span className="absolute left-3 top-3 rounded-[6px] bg-white/85 px-[9px] py-[5px] text-[10.5px] font-bold uppercase tracking-[0.3px] text-[#1A4379]">
+                  {resource.tag}
+                </span>
+                <img
+                  src={resource.icon}
+                  alt={resource.title}
+                  className="h-[52px] w-[52px]"
+                />
+              </div>
+
+              <div className="p-4">
+                <h3 className="text-[15.5px] font-bold text-[#1A4379]">
+                  {resource.title}
+                </h3>
+
+                <div className="mt-1.5 flex items-center gap-1 text-[12px] text-[#6D7582]">
+                  <div className="flex items-center gap-0.5">
+                    {Array.from({ length: resource.rating }).map((_, i) => (
+                      <img
+                        key={i}
+                        src={AffiliateStar}
+                        alt=""
+                        className="h-[12px] w-[12px]"
+                      />
+                    ))}
+                  </div>
+                  <span className="text-[#FFAB55]">({resource.reviews})</span>
+                </div>
+
+                <span className="mt-3 inline-block rounded-[999px] bg-[#20A89F]/10 px-[10px] py-[5px] text-[12px] font-bold text-[#20A89F]">
+                  Earn {resource.commission}%
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="max-w-[1180px] mx-auto px-[24px] py-[64px]">
+        <div className="text-center">
+          <p className="text-[12.5px] font-bold uppercase tracking-[1.2px] text-[#20A89F]">
+            Questions
+          </p>
+          <h2 className="mt-2 text-[34px] font-extrabold tracking-[-0.5px] text-[#1A4379]">
+            Frequently asked
+          </h2>
+          <div className="mx-auto mt-3 h-1 w-[46px] rounded-full bg-[#FFAB55]" />
+        </div>
+
+        <div className="mt-[16px]">
+          {faqs.map((faq) => (
+            <FaqItem key={faq.question} faq={faq} />
+          ))}
+        </div>
+      </section>
+      <section
+        className="w-full py-[76px] px-[24px] text-center"
+        style={{
+          background:
+            "linear-gradient(135deg, #122E52 0%, #1A4379 50%, #20A89F 100%)",
+        }}
+      >
+        <div className="max-w-[1020px] mx-auto">
+          <h2 className="text-[32px] font-extrabold leading-[40px] tracking-[-1.8px] text-white">
+            Ready to start earning?
+          </h2>
+          <p className="mx-auto mt-4 max-w-[480px] text-[16px] leading-[32.5px] text-white/80">
+            Join hundreds of parenting creators already earning with
+            MerchbyLucius.
+          </p>
+          <button
+            onClick={() => navigate("/sign-up")}
+            className="mt-[30px] rounded-full bg-[#2BC7BC] px-[30px] py-[16px] text-[15.5px] font-bold text-white shadow-[0_6px_16px_0_rgba(43,199,188,0.35)] hover:bg-[#20A89F] transition-colors"
+          >
+            Become an Affiliate
+          </button>
+        </div>
+      </section>
+
+      <footer className="w-full bg-[#122E52] px-[24px] py-[56px]">
+        <div className="max-w-[1180px] mx-auto">
+          <div className="flex flex-col gap-[40px] pb-[28px] sm:flex-row sm:justify-between">
+            <div className="max-w-[280px]">
+              <div className="flex items-center gap-2">
+                <img src={logo} alt="MerchbyLucius" className="h-7 w-auto" />
+              </div>
+              <p className="mt-3.5 text-[13.5px] leading-[21px] text-white/60">
+                Inspiring the next generation of learners with premium digital
+                content designed by experts and loved by families worldwide.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-[14px]">
+              <p className="text-[12px] font-bold uppercase tracking-[1px] text-white/40">
+                Program
+              </p>
+              <a
+                href="#how-it-works"
+                className="text-[14px] text-white/80 hover:text-white transition-colors"
+              >
+                How it works
+              </a>
+              <a
+                href="#benefits"
+                className="text-[14px] text-white/80 hover:text-white transition-colors"
+              >
+                Benefits
+              </a>
+              <a
+                href="#faq"
+                className="text-[14px] text-white/80 hover:text-white transition-colors"
+              >
+                FAQ
+              </a>
+            </div>
+
+            <div className="flex flex-col gap-[14px]">
+              <p className="text-[12px] font-bold uppercase tracking-[1px] text-white/40">
+                Company
+              </p>
+              <a
+                href="#bookstore"
+                className="text-[14px] text-white/80 hover:text-white transition-colors"
+              >
+                Bookstore
+              </a>
+              <a
+                href="#for-creators"
+                className="text-[14px] text-white/80 hover:text-white transition-colors"
+              >
+                For Creators
+              </a>
+              <a
+                href="#support"
+                className="text-[14px] text-white/80 hover:text-white transition-colors"
+              >
+                Support
+              </a>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3 border-t border-white/[0.12] pt-[18px] sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-[12.5px] text-white/45">
+              © 2026 MerchbyLucius. All rights reserved.
+            </p>
+            <div className="flex items-center gap-4 text-[12.5px] text-white/45">
+              <a
+                href="#terms"
+                className="hover:text-white/70 transition-colors"
+              >
+                Terms
+              </a>
+              <span>·</span>
+              <a
+                href="#privacy"
+                className="hover:text-white/70 transition-colors"
+              >
+                Privacy
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
