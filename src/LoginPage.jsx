@@ -55,7 +55,7 @@ export default function LoginPage() {
         return setErrorMessage(data.message || "Failed to log in. Check your details and try again.");
       }
 
-      const user = data.user || data.account || data.profile || data.data || {};
+      const user = data.user || data.account || data.profile || data.data || data.role || {};
       const role = getNormalizedRole(user);
       const token = data.userToken || data.token || data.accessToken || user.token || "";
 
