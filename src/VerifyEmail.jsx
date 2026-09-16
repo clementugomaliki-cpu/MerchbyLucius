@@ -15,6 +15,14 @@ export default function VerifyEmail() {
     const [submitting, setSubmitting] = useState(false);
     const [resending, setResending] = useState(false);
 
+    const accountType = location.state?.accountType || localStorage.getItem("userRole");
+
+const verifyEndpoint =
+  accountType === "creator"
+    ? "https://web-dev-course-1.onrender.com/accounts/creator-verify-otp"
+    : "https://web-dev-course-1.onrender.com/accounts/purchaser-verify-otp";
+
+
     const inputRefs = useRef([]);
 
     function handleDigitChange(index, value) {
@@ -51,7 +59,7 @@ export default function VerifyEmail() {
         }
         setSubmitting(true);
         try {
-        const response = await fetch("https://web-dev-course-1.onrender.com/accounts/verify-otp", {
+        const response = await fetch(verifyEndpoint, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({email, otp})

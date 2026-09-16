@@ -71,7 +71,7 @@ export default function LoginPage() {
         return;
       }
 
-      navigate("/dashboard");
+      navigate("/creator-dashboard");
     } catch (err) {
       setErrorMessage(err.message || "Unable to sign in right now.");
     } finally {
