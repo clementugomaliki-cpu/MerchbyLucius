@@ -72,6 +72,45 @@ export default function MyProducts() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
+  const [productFormOpen, setProductFormOpen] = useState(false);
+  const [addingProduct, setAddingProduct] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [formData, setFormData] = useState({name: "", description: "", price: "", image: "", stock: ""});
+
+  const updateFormDetails = (e) => {
+    setFormData(prev=>({...prev, [e.target.name]: e.target.value}))
+  }
+
+  const addNewProduct = async () => {
+    setAddingProduct(true);
+
+    const payload = new FormData();
+    payload.append("name", formData.name);
+    payload.append("description", formData.description);
+    payload.append("price", formData.price);
+    payload.append("image", formData.image);
+    payload.append("stock", formData.stock);
+    try {
+      const response = await fetch("https://web-dev-course-1.onrender.com/products/add-product", {
+      method: 'POST',
+      headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`
+      }, 
+      body: payload
+  });
+    const data = await response.json();
+    if (!response.ok) {
+     return setErrorMessage(data.message || "Failed to add product. Please try again.");
+    } 
+    } catch (error) {
+      setErrorMessage(error.message || "Unable to add product right now.");
+    } finally {
+      setAddingProduct(false);
+      
+    }
+    
+  }
+  
   return (
     <div className="flex mt-24 sm:mt-16 overflow-x-hidden">
       <PagesHeader user={user} navLinks={creatorNavLinks} />
@@ -93,7 +132,7 @@ export default function MyProducts() {
               letterSpacing: "1.6px",
               textTransform: "uppercase",
             }}
-            onClick={() => console.log("Create new product")}
+            onClick={() => setProductFormOpen(true)}
           >
             <FaPlus /> Create New Product
           </button>
@@ -132,6 +171,41 @@ export default function MyProducts() {
           />
         </div>
       </div>
+    {productFormOpen && (
+      <div className="fixed inset-0 bg-[#2EC5BC]/50 flex items-center justify-center z-50" onClick={()=>setProductFormOpen(false)}>
+        <form className="bg-white z-60 flex flex-col h-8/10 w-8/10 md:w-6/10 p-8 gap-6 rounded-lg" 
+          onClick={(e)=>e.stopPropagation()}
+          onSubmit={(e)=>{
+            e.preventDefault();
+            addNewProduct();
+          }}>
+          <label htmlFor="name">Product Title:
+            <input type="text" name="name" id="name" onChange={updateFormDetails} value={formData.name} 
+              className="block border w-full border-[#2EC5BC] rounded-sm p-2 focus:outline-[#2EC5BC]"/>
+          </label>
+          <label htmlFor="description">Product Description:
+            <input type="text" name="description" id="description" onChange={updateFormDetails} value={formData.description} 
+              className="block border w-full border-[#2EC5BC] rounded-sm p-2 focus:outline-[#2EC5BC]"/>
+          </label>
+          <label htmlFor="price">Product Price:
+            <input type="number" name="price" id="price" onChange={updateFormDetails} value={formData.price} 
+              className="block border w-full border-[#2EC5BC] rounded-sm p-2 focus:outline-[#2EC5BC]"/>
+          </label>
+          <label htmlFor="image">Product Image:
+            <input type="file" name="image" id="image" accept="image/*" 
+              onChange={(e)=>setFormData(prev => ({...prev, image: e.target.files[0]}))}
+              className="block border w-full border-[#2EC5BC] rounded-sm p-2 focus:outline-[#2EC5BC]"/>
+          </label>
+          <label htmlFor="stock">Stock:
+            <input type="number" name="stock" id="stock" onChange={updateFormDetails} value={formData.stock} 
+              className="block border w-full border-[#2EC5BC] rounded-sm p-2 focus:outline-[#2EC5BC]"/>
+          </label>
+          <button type="submit" className="bg-[#2EC5BC] text-white py-3 px-4 font-bold rounded-full cursor-pointer hover:bg-[#2AAB9F] transition-colors">
+            {addingProduct ? "Adding Product..." : "Add Product"}
+          </button>
+        </form>
+      </div>
+    )}
     </div>
   );
 }
