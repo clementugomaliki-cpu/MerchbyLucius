@@ -24,7 +24,7 @@ export default function Navbar() {
         </div>
         <div className="space-x-6 text-base font-semibold flex">
             <Link to="/sign-in" className="hidden md:block border px-8 py-3 rounded-full border-[#2EC5BC] text-[#2EC5BC] cursor-pointer">Login</Link>
-          <Link className="hidden md:block bg-[#2EC5BC] text-white px-8 py-3 rounded-full cursor-pointer">Become an Affiliate</Link>
+          <Link to="/become-affiliate" className="hidden md:block bg-[#2EC5BC] text-white px-8 py-3 rounded-full cursor-pointer">Become an Affiliate</Link>
         {/* <div className="relative z-40"> */}
         <button 
           className="md:hidden text-3xl relative z-40" onClick={toggleMenu}

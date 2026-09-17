@@ -73,18 +73,22 @@ export default function MyProducts() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const [productFormOpen, setProductFormOpen] = useState(false);
-  const [addingProduct, setAddingProduct] = useState(false);
+  //const [addingProduct, setAddingProduct] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({name: "", description: "", price: "", image: "", stock: ""});
   const [successMessage, setSuccessMessage] = useState("");
   const [productSubmitted, setProductSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
+
     setProductSubmitted(true);
 
-    setTimeout(() => {
-      setProductSubmitted(false);
-    }, 5000);
+     setTimeout(() => {
+      console.log("works agaain")
+setProductSubmitted(false);
+setFormData({name: "", description: "", price: "", image: "", stock: ""});
+}, 4000);
+//setFormData({name: "", description: "", price: "", image: "", stock: ""});
   }
 
   const updateFormDetails = (e) => {
@@ -92,7 +96,7 @@ export default function MyProducts() {
   }
 
   const addNewProduct = async () => {
-    setAddingProduct(true);
+    //setAddingProduct(true);
 
     const payload = new FormData();
     payload.append("name", formData.name);
@@ -113,6 +117,7 @@ export default function MyProducts() {
      return setErrorMessage(data.message || "Failed to add product. Please try again.");
     } 
     setSuccessMessage(data.message ||"Product added successfully!");
+
     } catch (error) {
       setErrorMessage(error.message || "Unable to add product right now.");
     } finally {
@@ -191,24 +196,24 @@ export default function MyProducts() {
             addNewProduct();
           }}>
           <label htmlFor="name">Product Title:
-            <input type="text" name="name" id="name" onChange={updateFormDetails} value={formData.name} 
+            <input type="text" name="name" id="name" onChange={updateFormDetails} value={formData.name} required
               className="block border w-full border-[#2EC5BC] rounded-sm p-2 focus:outline-[#2EC5BC]"/>
           </label>
           <label htmlFor="description">Product Description:
-            <input type="text" name="description" id="description" onChange={updateFormDetails} value={formData.description} 
+            <input type="text" name="description" id="description" onChange={updateFormDetails} value={formData.description} required
               className="block border w-full border-[#2EC5BC] rounded-sm p-2 focus:outline-[#2EC5BC]"/>
           </label>
           <label htmlFor="price">Product Price:
-            <input type="number" name="price" id="price" onChange={updateFormDetails} value={formData.price} 
+            <input type="number" name="price" id="price" onChange={updateFormDetails} value={formData.price} required 
               className="block border w-full border-[#2EC5BC] rounded-sm p-2 focus:outline-[#2EC5BC]"/>
           </label>
           <label htmlFor="image">Product Image:
-            <input type="file" name="image" id="image" accept="image/*" 
+            <input type="file" name="image" id="image" accept="image/*" required
               onChange={(e)=>setFormData(prev => ({...prev, image: e.target.files[0]}))}
               className="block border w-full border-[#2EC5BC] rounded-sm p-2 focus:outline-[#2EC5BC]"/>
           </label>
           <label htmlFor="stock">Stock:
-            <input type="number" name="stock" id="stock" onChange={updateFormDetails} value={formData.stock} 
+            <input type="number" name="stock" id="stock" onChange={updateFormDetails} value={formData.stock} required
               className="block border w-full border-[#2EC5BC] rounded-sm p-2 focus:outline-[#2EC5BC]"/>
           </label>
           {productSubmitted && (
@@ -217,7 +222,7 @@ export default function MyProducts() {
           <button type="submit" onClick={handleSubmit}
           
           className="bg-[#2EC5BC] text-white py-3 px-4 font-bold rounded-full cursor-pointer hover:bg-[#2AAB9F] transition-colors">
-            {addingProduct ? "Adding Product..." : "Add Product"}
+            Add Product
           </button>
         </form>
       </div>
