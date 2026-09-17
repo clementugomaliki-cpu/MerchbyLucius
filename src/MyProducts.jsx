@@ -76,6 +76,7 @@ export default function MyProducts() {
   const [addingProduct, setAddingProduct] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({name: "", description: "", price: "", image: "", stock: ""});
+  const [successMessage, setSuccessMessage] = useState("");
 
   const updateFormDetails = (e) => {
     setFormData(prev=>({...prev, [e.target.name]: e.target.value}))
@@ -102,6 +103,7 @@ export default function MyProducts() {
     if (!response.ok) {
      return setErrorMessage(data.message || "Failed to add product. Please try again.");
     } 
+    setSuccessMessage(data.message ||"Product added successfully!");
     } catch (error) {
       setErrorMessage(error.message || "Unable to add product right now.");
     } finally {
