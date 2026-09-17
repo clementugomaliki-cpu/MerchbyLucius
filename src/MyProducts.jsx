@@ -176,7 +176,7 @@ export default function MyProducts() {
       </div>
     {productFormOpen && (
       <div className="fixed inset-0 bg-[#2EC5BC]/50 flex items-center justify-center z-50" onClick={()=>setProductFormOpen(false)}>
-        <form className="bg-white z-60 flex flex-col h-8/10 w-8/10 md:w-6/10 p-8 gap-6 rounded-lg" 
+        <form className="bg-white z-60 flex flex-col h-8/10 w-8/10 md:w-6/10 px-8 py-4 gap-4 rounded-lg" 
           onClick={(e)=>e.stopPropagation()}
           onSubmit={(e)=>{
             e.preventDefault();
