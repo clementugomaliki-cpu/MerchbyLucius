@@ -77,6 +77,7 @@ export default function MyProducts() {
   const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({name: "", description: "", price: "", image: "", stock: ""});
   const [successMessage, setSuccessMessage] = useState("");
+  const [productSubmitted, setProductSubmitted] = useState(false);
 
   const updateFormDetails = (e) => {
     setFormData(prev=>({...prev, [e.target.name]: e.target.value}))
@@ -202,7 +203,12 @@ export default function MyProducts() {
             <input type="number" name="stock" id="stock" onChange={updateFormDetails} value={formData.stock} 
               className="block border w-full border-[#2EC5BC] rounded-sm p-2 focus:outline-[#2EC5BC]"/>
           </label>
-          <button type="submit" className="bg-[#2EC5BC] text-white py-3 px-4 font-bold rounded-full cursor-pointer hover:bg-[#2AAB9F] transition-colors">
+          {productSubmitted && (
+            <p className="text-green-500">Your product has been submitted and under review</p>
+          )}
+          <button type="submit" onClick={()=>setProductSubmitted(true)}
+          
+          className="bg-[#2EC5BC] text-white py-3 px-4 font-bold rounded-full cursor-pointer hover:bg-[#2AAB9F] transition-colors">
             {addingProduct ? "Adding Product..." : "Add Product"}
           </button>
         </form>
