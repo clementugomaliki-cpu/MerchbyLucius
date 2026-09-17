@@ -79,6 +79,14 @@ export default function MyProducts() {
   const [successMessage, setSuccessMessage] = useState("");
   const [productSubmitted, setProductSubmitted] = useState(false);
 
+  const handleSubmit = (e) => {
+    setProductSubmitted(true);
+
+    setTimeout(() => {
+      setProductSubmitted(false);
+    }, 5000);
+  }
+
   const updateFormDetails = (e) => {
     setFormData(prev=>({...prev, [e.target.name]: e.target.value}))
   }
@@ -204,9 +212,9 @@ export default function MyProducts() {
               className="block border w-full border-[#2EC5BC] rounded-sm p-2 focus:outline-[#2EC5BC]"/>
           </label>
           {productSubmitted && (
-            <p className="text-green-500">Your product has been submitted and under review</p>
+            <p className="text-[#2EC5BC]">Your product has been submitted and under review</p>
           )}
-          <button type="submit" onClick={()=>setProductSubmitted(true)}
+          <button type="submit" onClick={handleSubmit}
           
           className="bg-[#2EC5BC] text-white py-3 px-4 font-bold rounded-full cursor-pointer hover:bg-[#2AAB9F] transition-colors">
             {addingProduct ? "Adding Product..." : "Add Product"}
