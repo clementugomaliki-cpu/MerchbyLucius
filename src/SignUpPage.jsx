@@ -69,7 +69,7 @@ export default function SignUpPage() {
         </Link>
       </header>
       <div className="flex pt-25">
-        <div className="md:h-screen md:w-2/4 bg-[#2EC5BC] flex justify-center items-center">
+        <div className="hidden md:h-screen md:w-2/4 bg-[#2EC5BC] md:flex justify-center items-center">
           <img src={bubblesImage} alt="" />
         </div>
         <div className="flex flex-col justify-center p-16 py-8 gap-8 mx-auto">
