@@ -1,0 +1,39 @@
+.dashboard-page,
+.dashboard-page * {
+  box-sizing: border-box;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  width: 100%;
+}
+
+.dashboard-sidebar,
+.dashboard-content {
+  min-width: 0;
+}
+
+.dashboard-content > * {
+  max-width: 100%;
+}
+
+.dashboard-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .dashboard-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dashboard-sidebar,
+  .dashboard-content {
+    width: 100%;
+  }
+
+  .dashboard-content > * {
+    width: 100%;
+  }
+}
