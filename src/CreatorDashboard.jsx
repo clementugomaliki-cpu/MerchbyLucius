@@ -1,23 +1,232 @@
 import CreatorDashboardSidebar from "./Components/CreatorDashboardSidebar";
 import profilePhoto from "./images/creator photo.png";
 import { FaPlus } from "react-icons/fa";
+import PagesHeader from "./Components/PagesHeader";
+import moneyBadgeIcon from "./images/Container.svg";
+import StatCard from "./Components/StatCard";
+import SalesPerformanceChart from "./Components/SalesPerformanceChart";
+import RecentActivity from "./Components/RecentActivity";
+import ProductSection from "./Components/ProductSection";
+import alphabetPackImg from "./images/alphabet-pack.png";
+import spaceExplorersImg from "./images/space-explorers.png";
+import alphabetBundleImg from "./images/alphabet-bundle.png";
+import phonicsImg from "./images/phonics.png";
+import RewardsFooter from "./Components/RewardsFooter";
+import creatorAvatar from "./images/creatorphoto.png";
+import {
+  MdDashboard,
+  MdOutlineInventory2,
+  MdOutlinePoll,
+  MdOutlineBrightness5,
+} from "react-icons/md";
+import { GiStarMedal } from "react-icons/gi";
 
 export default function CreatorDashboard() {
-    return (
-        <div className="flex">
-            <CreatorDashboardSidebar/>
-            <div className="flex-1 ml-68 p-6">
-                <header className="flex justify-between">
-                    <div className="flex flex-col gap-1">
-                    <h2 className="text-[#4A5568] text-2xl font-extrabold">Creator Dashboard</h2>
-                    <span className="text-[#6B7280] font-[400]">{`Welcome back, ${'Lucius'}! Here's what's happening with your store.`}</span>
-                </div>
-                <div className="flex gap-4 pr-6">
-                    <button className="bg-[#2EC5BC] px-6 shrink-0 rounded-full text-white font-bold cursor-pointer flex items-center gap-2">< FaPlus className="text-xl"/>Create New Product</button>
-                    <img src={profilePhoto} alt="User profile photo" className="shrink-0" />
-                </div>
-                </header>               
+  const user = { name: "Lucius", status: "active", avatar: creatorAvatar };
+
+  const creatorNavLinks = [
+    {
+      to: "/creator-dashboard",
+      label: "DASHBOARD",
+      icon: <MdDashboard />,
+      end: true,
+    },
+    {
+      to: "/creator-dashboard/products",
+      label: "MY PRODUCTS",
+      icon: <MdOutlineInventory2 />,
+    },
+    {
+      to: "/creator-dashboard/sales",
+      label: "SALES ANALYTICS",
+      icon: <MdOutlinePoll />,
+    },
+    {
+      to: "/creator-dashboard/payouts",
+      label: "PAYOUTS",
+      icon: <GiStarMedal />,
+    },
+    {
+      to: "/creator-dashboard/settings",
+      label: "SETTINGS",
+      icon: <MdOutlineBrightness5 />,
+    },
+  ];
+
+  const mockStats = {
+    totalEarnings: 342.5,
+    last7Days: { newEarnings: 2, downloads: 5 },
+    last28Days: { totalEarnings: 8, downloads: 12 },
+  };
+
+  const mockChartData = [
+    { date: "May 01", revenue: 20 },
+    { date: "May 10", revenue: 45 },
+    { date: "May 20", revenue: 30 },
+    { date: "May 30", revenue: 60 },
+  ];
+
+  const mockActivity = [
+    {
+      id: 1,
+      type: "sale",
+      message: "New sale: Starlight Hoodie",
+      time: "2 minutes ago",
+    },
+    {
+      id: 2,
+      type: "review",
+      message: "New 5-star review from Sarah B.",
+      time: "1 hour ago",
+    },
+    {
+      id: 3,
+      type: "approval",
+      message: 'Product "Cosmic Cap" approved!',
+      time: "5 hours ago",
+    },
+    {
+      id: 4,
+      type: "sale",
+      message: "New sale: Neon Notebook",
+      time: "Yesterday",
+    },
+  ];
+
+  const mockProducts = [
+    {
+      id: 1,
+      image: alphabetPackImg,
+      title: "Alphabet Adventure Pack",
+      tag: "WORKSHEET",
+    },
+    {
+      id: 2,
+      image: spaceExplorersImg,
+      title: "Space Explorers Math",
+      tag: "MATH",
+    },
+    {
+      id: 3,
+      image: alphabetBundleImg,
+      title: "Alphabet Adventure Pack",
+      tag: "BUNDLE",
+    },
+    { id: 4, image: phonicsImg, title: "Phonics Fun Volume 1", tag: "PHONICS" },
+  ];
+
+  const mockTopProducts = [
+    {
+      id: 1,
+      image: alphabetPackImg,
+      title: "Alphabet Adventure Pack",
+      tag: "WORKSHEET",
+      rating: 5,
+      reviewCount: 56,
+    },
+    {
+      id: 2,
+      image: spaceExplorersImg,
+      title: "Space Explorers Math",
+      tag: "MATH",
+      rating: 5,
+      reviewCount: 89,
+    },
+    {
+      id: 3,
+      image: alphabetBundleImg,
+      title: "Alphabet Adventure Pack",
+      tag: "BUNDLE",
+      rating: 5,
+      reviewCount: 89,
+    },
+    {
+      id: 4,
+      image: phonicsImg,
+      title: "Phonics Fun Volume 1",
+      tag: "PHONICS",
+      rating: 5,
+      reviewCount: 89,
+    },
+  ];
+
+  return (
+    <div className="flex mt-24 sm:mt-16 overflow-x-hidden">
+      <PagesHeader user={user} navLinks={creatorNavLinks} />
+      <CreatorDashboardSidebar user={user} />
+      <div className="flex-1 w-full ml-0 md:ml-80 p-4 sm:p-6 bg-[#F2F4F5]">
+        <header className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+          <div className="flex flex-col gap-1 text-black">
+            <p className="text-xl sm:text-base font-extrabold text-[#4A5568]">{`Hello, ${user.name}! 👋`}</p>
+            <span className="text-[#6B7280] text-sm">
+              Ready for today's products adventure?
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3 bg-white rounded-2xl shadow px-5 py-3 w-full sm:w-auto">
+            <div className="w-14 h-14 rounded-2xl bg-[#FFA952] flex items-center justify-center shrink-0">
+              <img src={moneyBadgeIcon} alt="" className="w-6 h-6" />
             </div>
+            <div>
+              <p className="text-xs text-gray-500 tracking-wide">
+                TOTAL EARNINGS
+              </p>
+              <p className="text-xl font-bold text-[#1E3A5F]">{`N${mockStats.totalEarnings}`}</p>
+            </div>
+          </div>
+        </header>
+
+        <div className="flex flex-col sm:flex-row gap-6 mt-6">
+          <StatCard
+            title="Last 7 Days"
+            badgeText="Live Activity"
+            badgeColor="bg-teal-100 text-teal-600"
+            stats={[
+              { value: mockStats.last7Days.newEarnings, label: "New Earnings" },
+              { value: mockStats.last7Days.downloads, label: "Downloads" },
+            ]}
+          />
+          <StatCard
+            title="Last 28 Days"
+            badgeText="Monthly Recap"
+            badgeColor="bg-blue-100 text-blue-600"
+            stats={[
+              {
+                value: mockStats.last28Days.totalEarnings,
+                label: "Total Earnings",
+              },
+              { value: mockStats.last28Days.downloads, label: "Downloads" },
+            ]}
+          />
         </div>
-    )
+
+        <div className="flex flex-col lg:flex-row gap-6 mt-6">
+          <SalesPerformanceChart data={mockChartData} />
+          <RecentActivity activities={mockActivity} />
+        </div>
+
+        <div className="overflow-x-auto">
+          <ProductSection
+            title="Your Products"
+            subtitle="Manage and track your educational materials"
+            products={mockProducts}
+          />
+        </div>
+
+        <div className="flex flex-col gap-6 mt-6">
+          <div className="overflow-x-auto">
+            <ProductSection
+              title="Top Performing Products"
+              subtitle="Explore your top performing products here."
+              products={mockTopProducts}
+            />
+          </div>
+          <RewardsFooter
+            salesCount={mockStats.last28Days.totalEarnings}
+            onViewSales={() => console.log("View sales clicked")}
+          />
+        </div>
+      </div>
+    </div>
+  );
 }

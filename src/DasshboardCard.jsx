@@ -1,6 +1,6 @@
 import lion from "./assets/images/lion.png";
 import spaceship from "./assets/space.svg";
-import adventure from "./images/bundle.svg";
+import adventure from "./images/Bundle.svg";
 import phonic from "./assets/phonics.svg";
 import { useDownload } from "./Download";
 
