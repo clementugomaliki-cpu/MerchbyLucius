@@ -71,6 +71,11 @@ export default function LoginPage() {
         return;
       }
 
+      if (role.includes("moderator")) {
+        navigate("/moderator/reviews");
+        return;
+      }
+
       navigate("/dashboard");
     } catch (err) {
       setErrorMessage(err.message || "Unable to sign in right now.");

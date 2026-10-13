@@ -9,7 +9,11 @@ export default function VerificationSuccess() {
   const savedRole = localStorage.getItem("userRole") || "";
 
   const normalizedRole = String(savedRole || savedUser?.role || savedUser?.accountType || savedUser?.userType || "purchaser").toLowerCase();
-  const dashboardPath = normalizedRole.includes("creator") ? "/creator-dashboard" : "/dashboard";
+  const dashboardPath = normalizedRole.includes("moderator")
+    ? "/moderator/reviews"
+    : normalizedRole.includes("creator")
+      ? "/creator-dashboard"
+      : "/dashboard";
 
   return (
     <section className="bg-[#F8FAFB]">

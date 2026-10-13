@@ -16,6 +16,7 @@ import Settings from "./Settings";
 import CreatorDashboard from "./CreatorDashboard";
 import MyProducts from "./MyProducts";
 import AffiliateHero from "./AffiliateHero";
+import ModeratorReviews from "./ModeratorReviews";
 
 export default function App() {
   return (
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="/dashboard/settings" element={<Settings />} />
           <Route path="/creator-dashboard" element={<CreatorDashboard />} />
           <Route path="/creator-dashboard/products" element={<MyProducts />} />
+          <Route path="/moderator/reviews" element={<ModeratorReviews />} />
           <Route path="/become-affiliate" element={<AffiliateHero />} />
         </Routes>
       </BrowserRouter>
