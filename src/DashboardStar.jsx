@@ -46,13 +46,14 @@ export default function DashboardStar() {
   ];
 
   return (
-    <div className='w-239 h-130 gap-8 pt-10 '>
-    <div>
+    <div className='flex-1 min-h-screen mt-24 md:ml-72 px-4 sm:px-8 md:px-12 py-8 '>
+    <div className=''>
       <div>
         <h3 className='font-extrabold text-[24px] font-[Plus Jakarta Sans] text-[#4A5568]'>Suggested for you</h3>
         <p  className='font-medium text-[16px] text-[#6B7280] '>Explore more products similar to your purchases.</p>
       </div>
-    <div className="grid grid-cols-4 md:grid-cols-2 h-130 lg:grid-cols-4 gap-x-6 p-6 w-239">
+      
+    <div className="grid  sm:grid-cols-2 sm:gap-4 sm:h-auto lg:grid-cols-4 gap-x-20 pt-4 w-220">
       {cards.map((card) => {
         // Get the specific rating and hover state for THIS specific card
         const currentRating = ratings[card.id] || 0;
@@ -63,7 +64,7 @@ export default function DashboardStar() {
             <div className="">
               {/* Card Image */}
               <div className='w-53 h-53'>
-              <img src={card.image} alt={card.title} className="w-full h-full object-full rounded-t-3xl" />
+              <img src={card.image} alt={card.title} className=" rounded-t-3xl" />
               </div>
               
               {/* Badge */}   <div className='pl-5'>
