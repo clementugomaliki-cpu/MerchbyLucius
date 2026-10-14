@@ -4,7 +4,6 @@ import spaceship from "./assets/space.svg";
 import adventure from "./images/Bundle.svg";
 import phonic from "./assets/phonics.svg";
 import { IoStarOutline, IoStar } from "react-icons/io5";
-
 export default function DashboardStar() {
   // Initialize state maps for handling star logic across multiple cards
   const [ratings, setRatings] = useState({});
@@ -46,37 +45,37 @@ export default function DashboardStar() {
   ];
 
   return (
-    <div className='flex-1 min-h-screen mt-24 md:ml-72 px-4 sm:px-8 md:px-12 py-8 '>
+    <div className='flex-1 min-h-screen mt-24  px-4 sm:px-8 md:px-12 py-8 '>
     <div className=''>
       <div>
         <h3 className='font-extrabold text-[24px] font-[Plus Jakarta Sans] text-[#4A5568]'>Suggested for you</h3>
         <p  className='font-medium text-[16px] text-[#6B7280] '>Explore more products similar to your purchases.</p>
       </div>
       
-    <div className="grid  sm:grid-cols-2 sm:gap-4 sm:h-auto lg:grid-cols-4 gap-x-20 pt-4 w-220">
+    <div className="grid w-full min-w-0 h-auto grid-cols-2 gap-4 pt-4 sm:grid-cols-2 xl:grid-cols-4">
       {cards.map((card) => {
         // Get the specific rating and hover state for THIS specific card
         const currentRating = ratings[card.id] || 0;
         const currentHover = hovers[card.id] || 0;
 
         return (
-          <div key={card.id} className=" shadow-sm w-54 h-103 rounded-4xl  bg-white ">
+          <div key={card.id} className=" flex min-w-0 flex-col px-4 space-y-2  justify-between overflow-hidden rounded-4xl shadow-sm ">
             <div className="">
               {/* Card Image */}
-              <div className='w-53 h-53'>
+              <div className='w-53 h-60'>
               <img src={card.image} alt={card.title} className=" rounded-t-3xl" />
               </div>
               
-              {/* Badge */}   <div className='pl-5'>
+              {/* Badge */}   <div className=''>
               <span className="text-xs font-bold text-[#002F71] bg-blue-50 px-2 py-1 rounded-full">
                 {card.badgeText}
               </span>
               
               {/* Title */}
-              <h3 className="font-semibold text-lg mt-2 mb-4 w-43 h-14 text-[#002F71]">{card.title}</h3>
+              <h3 className="font-semibold text-lg w-43 h-14 text-[#002F71]">{card.title}</h3>
 
               {/* Star Rating Container */}
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1 ">
                 {[...Array(5)].map((_, starIndex) => {
                   const starValue = starIndex + 1; 
                   const isFilled = starValue <= (currentHover || currentRating);
@@ -98,15 +97,15 @@ export default function DashboardStar() {
                     </button>
                   );
                 })}
-                <div pl-4>
+                <div >
                 <p className=' w-7 h-4 text-[16px] text-[#9CA3AF] font-bold font-[Plus Jakarta Sans]'>{card.number}</p>
                 </div>
               </div>
             </div>
 
             {/* Quick View Button */}
-           <div className='pl-5'>
-            <button className="w-43 h-10  text-white rounded-4xl  text-[#2EC5BC] text-[16px] font-semibold transition-all bg-[#2EC5BC] hover:text-white">
+           <div className=''>
+            <button className="rounded-4xl bg-[#2EC5BC] w-full py-2 my-2 text-center text-[16px] text-white transition-all bg-[#2EC5BC] hover:text-white">
               {card.text}
             </button>
            </div>

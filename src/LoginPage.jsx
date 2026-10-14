@@ -36,13 +36,10 @@ export default function LoginPage() {
     if (typeof directRole === "boolean") {
       return directRole ? "creator" : "purchaser";
     }
-<<<<<<< HEAD
     setErrorMessage("");
     setFormInput({email: "", password: ""});
     localStorage.setItem("token", data.userToken);
     navigate("/dashboard");
-=======
->>>>>>> 49bbd06b95e18b4a0b55163cd2887fd5aed0b814
 
     return String(directRole || "purchaser").toLowerCase();
   }

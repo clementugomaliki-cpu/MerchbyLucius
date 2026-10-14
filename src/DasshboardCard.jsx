@@ -49,7 +49,7 @@ function DasshboardCard() {
         </p>
       </div>
 
-      <div className="grid w-full min-w-0 grid-cols-1 gap-4 pt-4 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid w-full min-w-0 grid-cols-2 gap-4 pt-4 sm:grid-cols-2 xl:grid-cols-4">
         {card.map((c, index) => (
           <div
             key={`${c.title}-${index}`}

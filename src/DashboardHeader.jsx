@@ -9,7 +9,7 @@ function DashboardHeader() {
   // );
 
   return (
-    <div className='flex-1 bg-[#F8FAFB]  md:mb-0 mt-24 md:ml-72 px-4 sm:px-8 md:px-12 py-8 '>
+    <div className='flex-1 bg-[#F8FAFB]  md:mb-0 mt-24  px-4 sm:px-8 md:px-12 py-8 '>
     <header className=''>
                 <div className='flex flex-col md:flex-row md:justify-between lg:gap-80 '>
                 <div className='flex-col'>

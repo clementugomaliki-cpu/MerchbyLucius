@@ -9,12 +9,12 @@ import DashboardStar from "./DashboardStar"
 import DashboardFooter from "./DashboardFooter"
 function Dashboard() {
   return (
-    <div >
+    <>
           <DashboardNav/>
-          <div className="grid ">
+   <div className="flex min-h-screen w-full">
+
           <DashboardAside/>
-          </div>
-          <div className="max-w-[90px] w-full mx-78 px-2">
+          <div className="flex-1 min-w-0 overflow-hidden">
              <DashboardHeader/>
              <DownloadProvider>
             <DashboardStatistics/> 
@@ -23,7 +23,8 @@ function Dashboard() {
             <DashboardFooter/>
             </DownloadProvider> 
           </div>
-        </div>
+   </div>
+        </>
 
   )
 }
